@@ -1,0 +1,47 @@
+.evbox {
+  width: 80%;
+  height: 84px;
+  margin: 8px;
+  padding: 0px;
+  border: 1px solid #808080;
+  display: flex;
+  justify-content: normal;
+}
+
+.evdate {
+  width: 20%;
+  height: 100%;
+  margin: 0;
+  padding: 10px 0 15px 0;
+  background-color: #808080;
+  font-family: "Futura PT", "Futura", "Helvetica", "Sans serif";
+  color: #fff;
+  font-size: 0.75em;
+  line-height: 1em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.evdday {
+  color: #fff;
+  font-size: 2em;
+  line-height: 1.2em;
+}
+
+.evtitle {
+  color: #202026;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0 8px;
+  font-weight: bold;
+}
+
+.evico {
+  vertical-align: text-bottom;
+  margin-left: 4px;
+}
+
+.evdesc {
+  font-size: 80%;
+  padding: 0 8px;
+}
