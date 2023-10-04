@@ -1,9 +1,10 @@
 import { GiBlackHoleBolas } from 'react-icons/gi';
 import { LuCalendarDays } from 'react-icons/lu';
 import { SiEpicgames } from 'react-icons/si';
+import { useState } from 'react'
 
 export default function IndoorHobbyForm() {
-
+	const [engagement,setEngagement] = useState(false);
 	return (
 		<form className="mt-6 border-2 p-4 rounded-md border-purple-500 max-w-3xl mx-auto">
 			<h5 className="text-xl my-3 bg-purple-500 text-white p-2 rounded-md">Indoor Hobby Events Form<SiEpicgames className="inline ml-2"/></h5>
@@ -44,17 +45,18 @@ export default function IndoorHobbyForm() {
 				</div>
 			</div>
 			
-			<div data-accordion="collapse" className="my-6" data-active-classes="bg-purple-500 text-white dark:bg-gray-900 text-gray-900 dark:text-white" data-inactive-classes="text-gray-500 dark:text-gray-400">
+			<div className="my-6">
 				<h3 className="text-2xl">
-					<button type="button" class="rounded-md flex items-center justify-between w-full py-3 px-3 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-engagement">
+					<button type="button" onClick={()=>{if (engagement === false) setEngagement(true); else setEngagement(false)}} class="bg-purple-500 text-white rounded-md flex items-center justify-between w-full py-3 px-3 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-engagement">
 						<span>Want to increase ENGAGEMENT?</span>
-						<svg data-accordion-icon class="w-3 h-3 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+						<svg data-accordion-icon class="w-3 h-3 shrink-0 rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
 						</svg>
 					</button>
 				</h3>
-				<div id="accordion-engagement" className="hidden">
-					<div class="p-1 mb-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+				{engagement? (
+				<div id="accordion-engagement">
+					<div class="p-1 my-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
 						<span class="font-medium">ALERT!</span> Need BOCAL Approval
 					</div>
 					<div class="grid md:grid-cols-3 md:gap-6 py-3 border-b border-gray-200 dark:border-gray-700">
@@ -71,7 +73,7 @@ export default function IndoorHobbyForm() {
 							<label for="alterian" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-500 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">₳ Alterian Dollars</label>
 						</div>
 					</div>
-				</div>
+				</div>):''}
 			</div>
 			<button type="submit" class="mt-3 text-white bg-purple-500 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-500 dark:hover:bg-purple-700 dark:focus:ring-purple-800">Submit</button>
 		</form>
