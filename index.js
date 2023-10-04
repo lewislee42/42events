@@ -30,6 +30,8 @@ function evtColor({ type }) {
 	}
 }
 
+// backgound color had to be changed to something close but not what set in the css file, (className='w1/5')
+// font also had to be changed
 export default function Dashboard({ allEvtsData }) {
 	return (
 		<>
@@ -42,9 +44,20 @@ export default function Dashboard({ allEvtsData }) {
 				{allEvtsData.map(({ id, title, type, when, where }) => (
 					<div key={id} className="w-4/5 h-20 m-2 p-0 border-2 flex justify-normal"
 						style={{borderColor: evtColor({type})}}>
-						<div className="w-1/5 h-full m-0 px-0 pt-2.5 pb-3.5"
-							style={{backgroundColor: evtColor({type})}}>
-							<div className={utilStyles.evdday}>
+						<div className="w-1/5 h-full m-0 px-0 pt-2.5 pb-3.5 text-center align-middle"
+							style={{
+							backgroundColor: evtColor({type}),
+							fontFamily: "'Futura PT', 'Futura', 'Helvetica', 'Sans serif",
+							color: "#ffffff",
+							fontSize: "0.75em",
+							lineHeight: "1em",
+							}}>
+							<div className="idk man just put smt here"
+								style={{
+									color: "#ffffff",
+									fontSize: "2em",
+									lineHeight: "1.2em",
+								}}>
 								<Date dateString={when} want='day' />
 							</div>
 							<div>
@@ -52,13 +65,14 @@ export default function Dashboard({ allEvtsData }) {
 							</div>
 						</div>
 						<div>
-							<h4 className={utilStyles.evtitle}>{title}</h4>
-							<div className={utilStyles.evdesc}>
+							<h4 className="uppercase m-0 py-0 px-2 font-bold"
+								style={{color: "#ffffff"}}>{title}</h4>
+							<div className="py-0 px-2" style={{fontSize: "80%"}}>
 								<AiOutlineClockCircle 
-									className={utilStyles.evico} />
+									className="align-text-bottom ml-1" />
 								<Date dateString={when} want='hmb' />
 								<MdOutlineLocationOn
-									className={utilStyles.evico} /> {where}
+									className="align-text-bottom ml-1" /> {where}
 							</div>
 						</div>
 					</div>
