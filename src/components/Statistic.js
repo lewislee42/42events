@@ -45,7 +45,7 @@ export default function Statistics() {
 				</div>
 			</div>
 			<button onClick={()=>{if (engagement === false) setEngagement(true); else setEngagement(false)}} className="my-4 block rounded-sm w-full text-left hover:bg-gray-600 active:bg-gray-600 focus:bg-gray-600 bg-gray-400 focus:outline-none">
-				<h3 className="text-lg text-white  px-2">Engagement Awards
+				<h3 className="text-xl text-white p-2">Engagement Awards
 					<svg class="w-3 h-3 shrink-0 rotate-180 inline ml-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
 					</svg>
