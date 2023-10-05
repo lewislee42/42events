@@ -1,5 +1,7 @@
 .evbox {
-  width: 80%;
+  width: 45%;
+  min-width: 252px;
+  max-width: 420px;
   height: 84px;
   margin: 8px;
   padding: 0px;

@@ -47,7 +47,7 @@ export default function Dashboard({ allEvtsData }) {
 						<div className="w-1/5 h-full m-0 px-0 pt-2.5 pb-3.5 text-center align-middle"
 							style={{
 							backgroundColor: evtColor({type}),
-							fontFamily: "'Futura PT', 'Futura', 'Helvetica', 'Sans serif",
+							fontFamily: "'Futura PT', 'Futura', 'Helvetica', 'Sans serif'",
 							color: "#ffffff",
 							fontSize: "0.75em",
 							lineHeight: "1em",
