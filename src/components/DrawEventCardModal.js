@@ -5,7 +5,7 @@ import { GiBlackHoleBolas } from 'react-icons/gi';
 function evtColor(type) {
 	switch (type.toLowerCase()) {
 		case 'sports':
-			return 'text-white bg-emerald-500 hover:bg-emerald-800 focus:ring-1 focus:outline-none focus:ring-emerald-300 px-4 border-emerald-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Emerald-500
+			return 'text-white bg-emerald-500 hover:bg-emerald-800 focus:ring-1 focus:outline-none focus:ring-emerald-300 px-2 border-emerald-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Emerald-500
 		case 'indoor hobby':
 			return 'text-white bg-purple-500 hover:bg-purple-800 focus:ring-1 focus:outline-none focus:ring-purple-300 px-4 border-purple-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Purple-500
 		case 'upskilling':
