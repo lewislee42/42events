@@ -4,7 +4,9 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-export function getSortedEvtsData(evtsDirectory) {
+const evtsDirectory = path.join(process.cwd(), '/data/events');
+
+export function getSortedEvtsData() {
   // Get file names under /events
   const fileNames = fs.readdirSync(evtsDirectory);
   const allEvtsData = fileNames.map((fileName) => {
