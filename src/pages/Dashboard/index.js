@@ -4,7 +4,7 @@ import { getSortedEvtsData } from '/src/components/EventDataReader';
 import DrawEventCard from '/src/components/DrawEventCard'
 
 export async function getStaticProps() {
-	const EventsData = getSortedEvtsData();
+	const EventsData = getSortedEvtsData('/data/past');
 	return {
 		props: {
 			EventsData,
