@@ -17,7 +17,6 @@ var obj = {
 }
 
 export default function History() {
-	
 	return (
 	<>
 		<Head>
