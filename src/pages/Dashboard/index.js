@@ -1,18 +1,31 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import Head from 'next/head'
-import Navbar from '../../components/Navbar'
+import Navbar from '/src/components/Navbar'
+import { getSortedEvtsData } from '/src/components/EventDataReader';
+import DrawEventCard from '/src/components/DrawEventCard'
 
-const inter = Inter({ subsets: ['latin'] })
+export async function getStaticProps() {
+	const EventsData = getSortedEvtsData();
+	return {
+		props: {
+			EventsData,
+		},
+	};
+}
 
-export default function Home() {
+export default function Dashboard({ EventsData }) {
 	return (
 		<>
 			<Head>
 				<title>42 Events</title>
 			</Head>
 			<Navbar />
-				
+			<div className='p-8 sm:ml-64 pt-20 sm:pt-8 h-screen'>
+				<section className='flex flex-wrap'>
+				{EventsData.map(({ id, title, type, when, where, bh, ep, ad }) => (
+					<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} bh={bh} ep={ep} ad={ad} />
+				))}
+				</section>
+			</div>
 		</>
 	)
 }
