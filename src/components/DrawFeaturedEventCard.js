@@ -1,25 +1,11 @@
+import { evtColor } from '/src/components/DrawEventCard.js'
 import Date from '/src/components/Date'
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { GiBlackHoleBolas } from 'react-icons/gi';
 import { Si42 } from 'react-icons/si';
 
-export function evtColor({ type }) {
-	switch (type.toLowerCase()) {
-		case 'sports':
-			return '#10b981'; //Emerald-500
-		case 'indoor hobby':
-			return '#a855f7'; //Purple-500
-		case 'upskilling':
-			return '#84cc16'; //Lime-500
-		case 'coallition':
-			return '#3b82f6'; //Blue-500
-		default:
-			return '#71717a'; //Zinc-500
-	}
-}
-
-export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad }) {
+export default function DrawFeaturedEventCard({ props }) {
 	const ClassBox = 'w-[45%] min-w-[280px] max-w-[420px] ' +
 		             'h-84 m-[8px] p-0 ' +
 		             'border-solid border-2 ' +
@@ -37,37 +23,38 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 		              'text-slate-700 dark:text-slate-300 ' +
 					  'text-[125%]'
 	const ClassReward = 'text-xl'
+	console.log(props.title)
 	return (
 		<>
 			<div className={ClassBox}
-				style={{borderColor: evtColor({type})}}>
+				style={{borderColor: evtColor(props)}}>
 				<div className={ClassDate}
-					style={{backgroundColor: evtColor({type})}}>
+					style={{backgroundColor: evtColor(props)}}>
 					<div className={ClassDay}>
-						<Date dateString={when} want='day' />
+						<Date dateString={props.when} want='day' />
 					</div>
 					<div>
-						<Date dateString={when} want='mon' />
+						<Date dateString={props.when} want='mon' />
 					</div>
 				</div>
 				<div>
-					<h4 className={ClassTitle}>{title}</h4>
+					<h4 className={ClassTitle}>{props.title}</h4>
 					<div className={ClassDesc}>
 						<AiOutlineClockCircle 
 							className={ClassIcon} />
-						<Date dateString={when} want='hmb' />
+						<Date dateString={props.when} want='hmb' />
 						<span className='ml-4' />
 						<MdOutlineLocationOn
-							className={ClassIcon} /> {where}
+							className={ClassIcon} /> {props.where}
 						<br />
 						<span className={ClassReward}>
-							<GiBlackHoleBolas
-								className={ClassIcon} /> {bh}
-							<span className='ml-6' />
-							<Si42
-								className={ClassIcon} /> {ep}
-							<span className='ml-6' />
-							<span className={ClassIcon}>₳</span> {ad}
+						<GiBlackHoleBolas
+							className={ClassIcon} /> {props.bh}
+						<span className='ml-8' />
+						<Si42
+							className={ClassIcon} /> {props.ep}
+						<span className='ml-8' />
+						<span className={ClassIcon}>₳</span> {props.ad}
 						</span>
 					</div>
 				</div>
