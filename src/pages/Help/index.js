@@ -16,7 +16,7 @@ export default function Help() {
 				width={500}
 				height={500}
 			/>
-			<p className="mt-6 mx-auto w-[500px] text-center text-3xl">Meanwhile, RTFM!</p>
+			<p className="mt-6 mx-auto text-center text-3xl">Meanwhile, RTFM!</p>
 			
 		</div>
 	</>
