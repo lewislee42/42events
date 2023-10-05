@@ -1,8 +1,9 @@
 import { GiBlackHoleBolas } from 'react-icons/gi';
 import { Si42 } from 'react-icons/si';
-
+import { useState } from 'react';
 
 export default function Statistics() {
+	const [engagement, setEngagement] = useState(false);
 	return(
 		<>
 			<h4 className="text-l"> Most Events Proposed</h4>
@@ -43,6 +44,15 @@ export default function Statistics() {
 					</div>
 				</div>
 			</div>
+			<button onClick={()=>{if (engagement === false) setEngagement(true); else setEngagement(false)}} className="my-4 block rounded-sm w-full text-left hover:bg-gray-600 active:bg-gray-600 focus:bg-gray-600 bg-gray-400 focus:outline-none">
+				<h3 className="text-lg text-white  px-2">Engagement Awards
+					<svg class="w-3 h-3 shrink-0 rotate-180 inline ml-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+					</svg>
+				</h3>
+			</button>
+			{engagement? 
+			(<>
 			<h4 className="text-l font-extrabold"> Most BlackHole(days)<GiBlackHoleBolas className="mx-2 inline"/>Awarded</h4>
 			<div class="my-2 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
 				<div className="flex gap-2 md:gap-4 lg:gap-16 xl:gap-20 flex-wrap">
@@ -100,6 +110,7 @@ export default function Statistics() {
 					</div>
 				</div>
 			</div>
+			</>):''}
 		</>
 	)
 }
