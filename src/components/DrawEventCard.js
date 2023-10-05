@@ -4,7 +4,7 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { GiBlackHoleBolas } from 'react-icons/gi';
 import { Si42 } from 'react-icons/si';
 
-function evtColor({ type }) {
+export function evtColor({ type }) {
 	switch (type.toLowerCase()) {
 		case 'sports':
 			return '#10b981'; //Emerald-500
