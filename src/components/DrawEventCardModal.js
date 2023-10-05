@@ -7,13 +7,13 @@ function evtColor(type) {
 		case 'sports':
 			return 'text-white bg-emerald-500 hover:bg-emerald-800 focus:ring-1 focus:outline-none focus:ring-emerald-300 px-2 border-emerald-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Emerald-500
 		case 'indoor hobby':
-			return 'text-white bg-purple-500 hover:bg-purple-800 focus:ring-1 focus:outline-none focus:ring-purple-300 px-4 border-purple-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Purple-500
+			return 'text-white bg-purple-500 hover:bg-purple-800 focus:ring-1 focus:outline-none focus:ring-purple-300 px-2 border-purple-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Purple-500
 		case 'upskilling':
-			return 'text-white bg-lime-500 hover:bg-lime-800 focus:ring-1 focus:outline-none focus:ring-lime-300 px-4 border-lime-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Lime-500
+			return 'text-white bg-lime-500 hover:bg-lime-800 focus:ring-1 focus:outline-none focus:ring-lime-300 px-2 border-lime-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Lime-500
 		case 'coallition':
-			return 'text-white bg-blue-500 hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-300 px-4 border-blue-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Blue-500
+			return 'text-white bg-blue-500 hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-300 px-2 border-blue-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Blue-500
 		default:
-			return 'text-white bg-zinc-500 hover:bg-zinc-800 focus:ring-1 focus:outline-none focus:ring-zinc-300 px-4 border-zinc-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Zinc-500
+			return 'text-white bg-zinc-500 hover:bg-zinc-800 focus:ring-1 focus:outline-none focus:ring-zinc-300 px-2 border-zinc-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Zinc-500
 	}
 }
 
@@ -50,8 +50,8 @@ function buttonColor(type) {
 export default function DrawEventCardModal({obj}) {
 	return (
 		<>
-			<button type="button" data-modal-target="defaultModal" data-modal-toggle="defaultModal" className={evtColor(obj.type)}>More</button>
-			<div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+			<button type="button" data-modal-target={obj.id} data-modal-toggle={obj.id} className={evtColor(obj.type)}>More</button>
+			<div id={obj.id} tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
 			<div class="relative w-full max-w-2xl max-h-full">
 				{/* <!-- Modal content --> */}
 				<div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -61,7 +61,7 @@ export default function DrawEventCardModal({obj}) {
 							{obj.title}
 						</h3>
 						<p className="ml-4">{obj.type}</p>
-						<button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+						<button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide={obj.id}>
 							<svg class="w-3 h-3 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
 								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
 							</svg>
@@ -88,8 +88,8 @@ export default function DrawEventCardModal({obj}) {
 					</div>
 					{/* <!-- Modal footer --> */}
 					<div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-						<button data-modal-hide="defaultModal" type="button" class={buttonColor(obj.type)}>I accept</button>
-						<button data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
+						<button data-modal-hide={obj.id} type="button" class={buttonColor(obj.type)}>I accept</button>
+						<button data-modal-hide={obj.id} type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
 					</div>
 				</div>
 			</div>
