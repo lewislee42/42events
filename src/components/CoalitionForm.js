@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function CoalitionForm() {
 	const [engagement,setEngagement] = useState(false);
 	return (
-		<form className="mt-6 border-2 p-4 rounded-md border-blue-500 max-w-3xl mx-auto">
+		<form className="mt-6 border-2 p-4 rounded-md border-blue-500 max-w-3xl mx-auto bg-white">
 			<h5 className="text-xl my-3 bg-blue-500 text-white p-2 rounded-md">Coalition Events Form<RiGroupLine className="inline ml-2"/></h5>
 			<div class="grid md:grid-cols-2 md:gap-6">
 				<div class="relative z-0 w-full mb-6 group">
