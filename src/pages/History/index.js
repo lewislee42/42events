@@ -20,8 +20,8 @@ export default function History() {
 				<h2 className="text-2xl">Past Events</h2>
 				<hr class="h-px my-4 bg-gray-400 border-0 dark:bg-gray-700"></hr>
 			</div>
-			
-			
+
+
 		</div>
 	</>
 			
