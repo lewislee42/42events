@@ -61,13 +61,14 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 							className={ClassIcon} /> {where}
 						<br />
 						<span className={ClassReward}>
-						<GiBlackHoleBolas
-							className={ClassIcon} /> {bh}
-						<span className='ml-6' />
-						<Si42
-							className={ClassIcon} /> {ep}
-            <span className='ml-6' />
-						<span className={ClassIcon}>₳</span> {ad}
+							<GiBlackHoleBolas
+								className={ClassIcon} /> {bh}
+							<span className='ml-6' />
+							<Si42
+								className={ClassIcon} /> {ep}
+							<span className='ml-6' />
+							<span className={ClassIcon}>₳</span> {ad}
+						</span>
 					</div>
 				</div>
 			</div>
