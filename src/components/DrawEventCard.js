@@ -20,7 +20,7 @@ function evtColor({ type }) {
 }
 
 export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad }) {
-	const ClassBox = 'w-[45%] min-w-[336px] max-w-[420px] ' +
+	const ClassBox = 'w-[45%] min-w-[280px] max-w-[420px] ' +
 		             'h-84 m-[8px] p-0 ' +
 		             'border-solid border-2 ' +
 		             'flex justify-normal'
@@ -33,10 +33,10 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 		               'uppercase font-bold'
 	const ClassDesc = 'px-[8px] text-sm text-black dark:text-white'
 	const ClassIcon = 'inline align-text-bottom ' +
-		              'mt-0 mr-[4px] mb-0 ml-[4px] ' +
-		              'text-slate-700 dark:text-slate-300 ' +
-					  'text-[125%]'
-	const ClassReward = 'text-2xl'
+		                'mt-0 mr-[4px] mb-0 ml-[4px] ' +
+		                'text-slate-700 dark:text-slate-300 ' +
+					          'text-[125%]'
+	const ClassReward = 'text-xl'
 	return (
 		<>
 			<div className={ClassBox}
@@ -63,12 +63,11 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 						<span className={ClassReward}>
 						<GiBlackHoleBolas
 							className={ClassIcon} /> {bh}
-						<span className='ml-8' />
+						<span className='ml-6' />
 						<Si42
 							className={ClassIcon} /> {ep}
-						<span className='ml-8' />
+            <span className='ml-6' />
 						<span className={ClassIcon}>₳</span> {ad}
-						</span>
 					</div>
 				</div>
 			</div>
