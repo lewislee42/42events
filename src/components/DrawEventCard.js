@@ -1,6 +1,8 @@
 import Date from '/src/components/Date'
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { MdOutlineLocationOn } from "react-icons/md";
+import { GiBlackHoleBolas } from 'react-icons/gi';
+import { Si42 } from 'react-icons/si';
 
 function evtColor({ type }) {
 	switch (type.toLowerCase()) {
@@ -17,7 +19,7 @@ function evtColor({ type }) {
 	}
 }
 
-export default function DrawEventCard({ id, title, type, when, where }) {
+export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad }) {
 	const ClassBox = 'w-[45%] min-w-[252px] max-w-[420px] ' +
 		             'h-84 m-[8px] p-0 ' +
 		             'border-solid border-2 ' +
@@ -31,7 +33,8 @@ export default function DrawEventCard({ id, title, type, when, where }) {
 		               'uppercase font-bold'
 	const ClassDesc = 'px-[8px] text-sm'
 	const ClassIcon = 'inline align-text-bottom ' +
-		              'mt-0 mr-[2px] mb-[2px] ml-[4px]'
+		              'mt-0 mr-[4px] mb-[2px] ml-[4px]'
+	const ClassReward = 'text-2xl'
 	return (
 		<>
 			<div key={id} className={ClassBox}
@@ -54,6 +57,16 @@ export default function DrawEventCard({ id, title, type, when, where }) {
 						<span className='ml-4' />
 						<MdOutlineLocationOn
 							className={ClassIcon} /> {where}
+						<br />
+						<span className={ClassReward}>
+						<GiBlackHoleBolas
+							className={ClassIcon} /> {bh}
+						<span className='ml-8' />
+						<Si42
+							className={ClassIcon} /> {ep}
+						<span className='ml-8' />
+						₳ {ad}
+						</span>
 					</div>
 				</div>
 			</div>
