@@ -19,7 +19,7 @@ export default function Dashboard({ EventsData }) {
 				<title>42 Events</title>
 			</Head>
 			<Navbar />
-			<div className='p-8 sm:ml-64 pt-20 sm:pt-8 h-screen'>
+			<div className='p-8 sm:ml-64 pt-20 sm:pt-8 h-screen dark:bg-gray-900'>
 				<section className='flex flex-wrap'>
 				{EventsData.map(({ id, title, type, when, where, bh, ep, ad }) => (
 					<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} bh={bh} ep={ep} ad={ad} />
