@@ -27,16 +27,16 @@ export default function History() {
 		</Head>
 		<Navbar/>
 		<div className="p-2 sm:ml-64 pt-20 sm:pt-8 sm:p-6 lg:p-8 grid md:grid-cols-2 md:gap-4 lg:gap-6 lg:gap-8 xl:gap-16">
-			<div className="px-2 py-4 md:px-6 mb-4 border border-solid border-gray-300 rounded-sm max-h-[610px] md:max-h-[900px]">
+			<div className="px-2 py-4 md:px-6 mb-4 border border-solid border-gray-300 rounded-sm max-h-[710px] md:max-h-[900px]">
 				<h2 className="text-2xl">Top Stats</h2>
 				<hr class="h-px my-4 bg-gray-400 border-0 dark:bg-gray-700"></hr>
 				<div className="overflow-y-scroll">
-					<div className="max-h-[410px] md:max-h-[700px]">
+					<div className="max-h-[510px] md:max-h-[700px]">
 						<Statistic/>
 					</div>
 				</div>
 			</div>
-			<div className="px-2 py-4 md:px-6 mb-4 border border-solid border-gray-300 rounded-sm max-h-[610px] md:max-h-[900px]">
+			<div className="px-2 py-4 md:px-6 mb-4 border border-solid border-gray-300 rounded-sm max-h-[710px] md:max-h-[900px]">
 				<h2 className="text-2xl">Past Events</h2>
 				<label for="event_select" class="sr-only">Select Event</label>
 				<select onChange={(e)=>changeEvent(e.target.value)}
@@ -49,7 +49,7 @@ export default function History() {
 				</select>
 				<hr class="h-px my-4 border-0"></hr>
 					<div className="overflow-y-scroll">
-						<div className="max-h-[410px] md:max-h-[700px]">
+						<div className="max-h-[510px] md:max-h-[700px]">
 							{event? arr.map((obj)=>{
 								if (obj.type == event)
 								{
