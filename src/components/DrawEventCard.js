@@ -27,17 +27,19 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 	const ClassDate = 'w-[20%] h-full ' +
 		              'm-0 pt-[10px] pb-[15px] ' +
 		              'text-white text-xs text-center align-middle'
-	const ClassDay = 'text-3xl font-bold'
+	const ClassDay = 'text-4xl font-bold'
 	const ClassTitle = 'm-0 px-2 ' +
 		               'text-slate-600 dark:text-slate-400 ' +
 		               'uppercase font-bold'
 	const ClassDesc = 'px-[8px] text-sm text-black dark:text-white'
 	const ClassIcon = 'inline align-text-bottom ' +
-		              'mt-0 mr-[4px] mb-[2px] ml-[4px]'
+		              'mt-0 mr-[4px] mb-0 ml-[4px] ' +
+		              'text-slate-700 dark:text-slate-300 ' +
+					  'text-[125%]'
 	const ClassReward = 'text-2xl'
 	return (
 		<>
-			<div key={id} className={ClassBox}
+			<div className={ClassBox}
 				style={{borderColor: evtColor({type})}}>
 				<div className={ClassDate}
 					style={{backgroundColor: evtColor({type})}}>
@@ -65,7 +67,7 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 						<Si42
 							className={ClassIcon} /> {ep}
 						<span className='ml-8' />
-						₳ {ad}
+						<span className={ClassIcon}>₳</span> {ad}
 						</span>
 					</div>
 				</div>
