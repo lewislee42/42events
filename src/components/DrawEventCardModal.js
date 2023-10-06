@@ -5,15 +5,15 @@ import { GiBlackHoleBolas } from 'react-icons/gi';
 function evtColor(type) {
 	switch (type.toLowerCase()) {
 		case 'sports':
-			return 'text-white bg-emerald-500 hover:bg-emerald-800 focus:ring-1 focus:outline-none focus:ring-emerald-300 px-2 md:px-6 border-emerald-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Emerald-500
+			return 'text-white bg-emerald-500 hover:bg-emerald-800 focus:ring-1 focus:outline-none focus:ring-emerald-300 px-[1px] md:px-6 border-emerald-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Emerald-500
 		case 'indoor hobby':
-			return 'text-white bg-purple-500 hover:bg-purple-800 focus:ring-1 focus:outline-none focus:ring-purple-300 px-2 md:px-6 border-purple-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Purple-500
+			return 'text-white bg-purple-500 hover:bg-purple-800 focus:ring-1 focus:outline-none focus:ring-purple-300 px-[1px] md:px-6 border-purple-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Purple-500
 		case 'upskilling':
-			return 'text-white bg-lime-500 hover:bg-lime-800 focus:ring-1 focus:outline-none focus:ring-lime-300 px-2 md:px-6 border-lime-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Lime-500
+			return 'text-white bg-lime-500 hover:bg-lime-800 focus:ring-1 focus:outline-none focus:ring-lime-300 px-[1px] md:px-6 border-lime-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Lime-500
 		case 'coallition':
-			return 'text-white bg-blue-500 hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-300 px-2 md:px-6 border-blue-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Blue-500
+			return 'text-white bg-blue-500 hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-300 px-[1px] md:px-6 border-blue-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Blue-500
 		default:
-			return 'text-white bg-zinc-500 hover:bg-zinc-800 focus:ring-1 focus:outline-none focus:ring-zinc-300 px-2 md:px-6 border-zinc-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Zinc-500
+			return 'text-white bg-zinc-500 hover:bg-zinc-800 focus:ring-1 focus:outline-none focus:ring-zinc-300 px-[1px] md:px-6 border-zinc-500 border-solid border-2 h-84 ml-[-8px] my-[8px]'; //Zinc-500
 	}
 }
 
