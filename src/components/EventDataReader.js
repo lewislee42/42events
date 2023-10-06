@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-export function getSortedEvtsData(props) {
+export async function getSortedEvtsData(props) {
 	const evtsDirectory = path.join(process.cwd(), props.path);
 	// Get file names under /events
 	const fileNames = fs.readdirSync(evtsDirectory);
@@ -18,10 +18,12 @@ export function getSortedEvtsData(props) {
 
 		// Use gray-matter to parse the evt metadata section
 		const matterResult = matter(fileContents);
+		const contentsMd = matterResult.content;
 
 		// Combine the data with the id
 		return {
 			id,
+			contentsMd,
 			...matterResult.data,
 		};
 	});
@@ -33,34 +35,4 @@ export function getSortedEvtsData(props) {
 			return -1;
 		}
 	});
-}
-
-export function getAllEvtIds() {
-	const fileNames = fs.readdirSync(evtsDirectory);
-
-	return fileNames.map((fileName) => {
-		return {
-			params: {
-				id: fileName.replace(/\.md$/, ''),
-			},
-		};
-	});
-}
-
-export async function getEvtData(id) {
-	const fullPath = path.join(evtsDirectory, `${id}.md`);
-	const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-	const matterResult = matter(fileContents);
-
-	const processedContent = await remark()
-		.use(html)
-		.process(matterResult.content);
-	const contentHtml = processedContent.toString();
-
-	return {
-		id,
-		contentHtml,
-		...matterResult.data,
-	};
 }

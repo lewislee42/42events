@@ -6,57 +6,59 @@ import { GiBlackHoleBolas } from 'react-icons/gi';
 import { Si42 } from 'react-icons/si';
 
 export default function DrawFeaturedEventCard({ props }) {
-	const ClassBox = 'w-[45%] min-w-[280px] max-w-[420px] ' +
-		             'h-84 m-[8px] p-0 ' +
-		             'border-solid border-2 ' +
-		             'flex justify-normal'
-	const ClassDate = 'w-[20%] h-full ' +
-		              'm-0 pt-[10px] pb-[15px] ' +
-		              'text-white text-xs text-center align-middle'
-	const ClassDay = 'text-4xl font-bold'
+	const ClassH2 = 'text-2xl text-center font-bold dark:text-white'
+	const ClassHr = 'w-[100%] my-[16px] ' +
+					'border-b-2 ' +
+					'border-b-slate-300 dark:border-b-slate-700'
+	const ClassBox = 'w-[70%] min-w-[280px] max-w-[840px] ' +
+		             'h-[168px] mt-[8px] mb-[8px] mx-auto p-[8px] ' +
+		             'rounded-lg bg-opacity-75 ' +
+		             'flex justify-normal' +
+					 'text-slate-600'
+	const ClassReward = 'w-[25%] max-w-[168px] h-full ' +
+						'm-0 py-[8px] px-[12px] ' +
+						'text-slate-600 text-4xl font-bold align-middle'
+	const ClassRewardIcon = 'inline align-text-bottom ' +
+							'mt-0 mr-[16px] mb-0 ml-[2px] ' +
+							'text-slate-700 text-[125%]'
 	const ClassTitle = 'm-0 px-2 ' +
-		               'text-slate-600 dark:text-slate-400 ' +
+		               'text-2xl text-slate-700 ' +
 		               'uppercase font-bold'
-	const ClassDesc = 'px-[8px] text-sm text-black dark:text-white'
+	const ClassDesc = 'px-[8px] text-sm text-slate-600'
 	const ClassIcon = 'inline align-text-bottom ' +
 		              'mt-0 mr-[4px] mb-0 ml-[4px] ' +
-		              'text-slate-700 dark:text-slate-300 ' +
+		              'text-slate-700 ' +
 					  'text-[125%]'
-	const ClassReward = 'text-xl'
-	console.log(props.title)
+	const ClassContent = 'text-slate-700'
 	return (
 		<>
+			<h2 className={ClassH2}>Featured Event</h2>
+			<hr className={ClassHr} />
 			<div className={ClassBox}
-				style={{borderColor: evtColor(props)}}>
-				<div className={ClassDate}
-					style={{backgroundColor: evtColor(props)}}>
-					<div className={ClassDay}>
-						<Date dateString={props.when} want='day' />
-					</div>
-					<div>
-						<Date dateString={props.when} want='mon' />
-					</div>
+				style={{backgroundColor: evtColor(props)}}>
+				<div className={ClassReward}>
+					<GiBlackHoleBolas
+						className={ClassRewardIcon} /> {props.bh}
+					<br />
+					<Si42
+						className={ClassRewardIcon} /> {props.ep}
+					<br />
+					<span className={`pl-[8px] pr-[8px] ${ClassRewardIcon}`}>
+						₳</span> {props.ad}
 				</div>
 				<div>
 					<h4 className={ClassTitle}>{props.title}</h4>
 					<div className={ClassDesc}>
 						<AiOutlineClockCircle 
 							className={ClassIcon} />
-						<Date dateString={props.when} want='hmb' />
+						<Date dateString={props.when} want='' />
 						<span className='ml-4' />
 						<MdOutlineLocationOn
 							className={ClassIcon} /> {props.where}
 						<br />
-						<span className={ClassReward}>
-						<GiBlackHoleBolas
-							className={ClassIcon} /> {props.bh}
-						<span className='ml-8' />
-						<Si42
-							className={ClassIcon} /> {props.ep}
-						<span className='ml-8' />
-						<span className={ClassIcon}>₳</span> {props.ad}
-						</span>
 					</div>
+					<div className={ClassContent}>{props.contentsMd}</div>
+					{props.contentsHtml}
 				</div>
 			</div>
 		</>
