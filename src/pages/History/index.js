@@ -3,19 +3,20 @@ import Navbar from '../../components/Navbar'
 import Statistic from '../../components/Statistic'
 import DrawEventCard from '../../components/DrawEventCard'
 import DrawEventCardModal from '../../components/DrawEventCardModal'
+import Rating from '../../components/Rating'
 import { useState } from 'react'
 
 var arr = [
-	{id:'hello',title:'Badminton',type:'sports',when:'2023-09-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.'},
-	{id:'hello1',title:'Coalition',type:'coallition',when:'2023-08-12T16:30:00',where:'Campus',bh:'1',ep:'5',ad:'-',contentHTML:'Steamboat fest!'},
-	{id:'hello2',title:'Board Game',type:'indoor hobby',when:'2023-08-10T16:30:00',where:'Campus',bh:'-',ep:'-',ad:'-',contentHTML:'Settlers with our GameMaster Boon Han!'},
-	{id:'hello3',title:'Hackathon',type:'upskilling',when:'2023-07-12T16:30:00',where:'Campus',bh:'20',ep:'10',ad:'200',contentHTML:'Create a card game and host it online'},
-	{id:'hello4',title:'ETHKL Talk',type:'upskilling',when:'2023-06-15T16:30:00',where:'Online',bh:'5',ep:'5',ad:'-',contentHTML:'Googlemeet Online ETHKL'},
-	{id:'hello5',title:'Khazanah',type:'upskilling',when:'2023-05-12T16:30:00',where:'Campus',bh:'10',ep:'30',ad:'-',contentHTML:'Meeting Khazanah C-levels'},
-	{id:'hello6',title:'Board Game',type:'indoor hobby',when:'2023-05-10T16:30:00',where:'Mcdonald',bh:'-',ep:'-',ad:'-',contentHTML:'Settlers with our GameMaster Boon Han!'},
-	{id:'hello7',title:'Badminton',type:'sports',when:'2023-04-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.'},
-	{id:'hello8',title:'Badminton',type:'sports',when:'2023-03-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.'},
-	{id:'hello9',title:'Badminton',type:'sports',when:'2023-02-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.'},
+	{id:'hello',title:'Badminton',type:'sports',when:'2023-09-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'2'},
+	{id:'hello1',title:'Coalition',type:'coallition',when:'2023-08-12T16:30:00',where:'Campus',bh:'1',ep:'5',ad:'-',contentHTML:'Steamboat fest!', rating:'3'},
+	{id:'hello2',title:'Board Game',type:'indoor hobby',when:'2023-08-10T16:30:00',where:'Campus',bh:'-',ep:'-',ad:'-',contentHTML:'Settlers with our GameMaster Boon Han!',rating:'4'},
+	{id:'hello3',title:'Hackathon',type:'upskilling',when:'2023-07-12T16:30:00',where:'Campus',bh:'20',ep:'10',ad:'200',contentHTML:'Create a card game and host it online',rating:'5'},
+	{id:'hello4',title:'ETHKL Talk',type:'upskilling',when:'2023-06-15T16:30:00',where:'Online',bh:'5',ep:'5',ad:'-',contentHTML:'Googlemeet Online ETHKL',rating:'3'},
+	{id:'hello5',title:'Khazanah',type:'upskilling',when:'2023-05-12T16:30:00',where:'Campus',bh:'10',ep:'30',ad:'-',contentHTML:'Meeting Khazanah C-levels', rating:'5'},
+	{id:'hello6',title:'Board Game',type:'indoor hobby',when:'2023-05-10T16:30:00',where:'Mcdonald',bh:'-',ep:'-',ad:'-',contentHTML:'Settlers with our GameMaster Boon Han!',rating:'5'},
+	{id:'hello7',title:'Badminton',type:'sports',when:'2023-04-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'5'},
+	{id:'hello8',title:'Badminton',type:'sports',when:'2023-03-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'4'},
+	{id:'hello9',title:'Badminton',type:'sports',when:'2023-02-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'5'},
 ]
 
 export default function History() {
@@ -54,18 +55,26 @@ export default function History() {
 								if (obj.type == event)
 								{
 									return (
-									<div className="flex">
-										<DrawEventCard  key={obj.id} id={obj.id} title={obj.title} type={obj.type} when={obj.when} where={obj.where} bh={obj.bh} ep={obj.ep} ad={obj.ad}/>
-										<DrawEventCardModal key={obj.id} obj={obj}/>
+									<div>
+										<div className="flex">
+											<DrawEventCard  key={obj.id} id={obj.id} title={obj.title} type={obj.type} when={obj.when} where={obj.where} bh={obj.bh} ep={obj.ep} ad={obj.ad}/>
+											<DrawEventCardModal key={obj.id} obj={obj}/>
+										</div>
+										<Rating rating={obj.rating}/>
 									</div>
 									)
 								}
 								else
 									return ''
-							}) : arr.map((obj)=>(<div className="flex">
-							<DrawEventCard  key={obj.id} id={obj.id} title={obj.title} type={obj.type} when={obj.when} where={obj.where} bh={obj.bh} ep={obj.ep} ad={obj.ad}/>
-							<DrawEventCardModal key={obj.id}obj={obj}/>
-							</div>))}
+							}) : arr.map((obj)=>(
+							<div>
+								<div className="flex">
+									<DrawEventCard  key={obj.id} id={obj.id} title={obj.title} type={obj.type} when={obj.when} where={obj.where} bh={obj.bh} ep={obj.ep} ad={obj.ad}/>
+									<DrawEventCardModal key={obj.id}obj={obj}/>
+								</div>
+								<Rating obj={obj}/>
+							</div>
+							))}
 						</div>
 					</div>
 					
