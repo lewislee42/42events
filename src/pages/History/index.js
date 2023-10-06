@@ -60,7 +60,7 @@ export default function History() {
 											<DrawEventCard  key={obj.id} id={obj.id} title={obj.title} type={obj.type} when={obj.when} where={obj.where} bh={obj.bh} ep={obj.ep} ad={obj.ad}/>
 											<DrawEventCardModal key={obj.id} obj={obj}/>
 										</div>
-										<Rating rating={obj.rating}/>
+										<Rating obj={obj}/>
 									</div>
 									)
 								}
