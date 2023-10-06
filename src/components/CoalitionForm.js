@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function CoalitionForm() {
 	const [engagement,setEngagement] = useState(false);
 	return (
-		<form className="mt-6 border-2 p-4 rounded-md border-blue-500 max-w-3xl mx-auto bg-white">
+		<form className="mt-6 border-2 p-4 rounded-md border-blue-500 max-w-3xl mx-auto bg-white dark:bg-gray-900">
 			<h5 className="text-xl my-3 bg-blue-500 text-white p-2 rounded-md">Coalition Events Form<RiGroupLine className="inline ml-2"/></h5>
 			<div class="grid md:grid-cols-2 md:gap-6">
 				<div class="relative z-0 w-full mb-6 group">
@@ -56,7 +56,7 @@ export default function CoalitionForm() {
 			
 			<div className="my-6">
 				<h3 className="text-2xl">
-					<button type="button" onClick={()=>{if (engagement === false) setEngagement(true); else setEngagement(false)}} class="bg-blue-500 text-white rounded-md flex items-center justify-between w-full py-3 px-3 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-engagement">
+					<button type="button" onClick={()=>{if (engagement === false) setEngagement(true); else setEngagement(false)}} class="bg-blue-500 text-white rounded-md flex items-center justify-between w-full py-3 px-3 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700" data-accordion-target="#accordion-engagement">
 						<span>Want to increase ENGAGEMENT?</span>
 						<svg data-accordion-icon class="w-3 h-3 shrink-0 rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
