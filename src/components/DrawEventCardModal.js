@@ -1,4 +1,4 @@
-import Date from '/src/components/Date'
+import FormatDate from '/src/components/FormatDate'
 import { Si42 } from 'react-icons/si';
 import { GiBlackHoleBolas } from 'react-icons/gi';
 
@@ -71,7 +71,7 @@ export default function DrawEventCardModal({obj}) {
 					{/* <!-- Modal body --> */}
 					<div class="p-6 space-y-6">
 						<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-							Date: <Date dateString={obj.when} want='day' /> <Date dateString={obj.when} want='mon' /> <Date dateString={obj.when} want='hmb' />
+							Date: <FormatDate dateString={obj.when} want='day' /> <FormatDate dateString={obj.when} want='mon' /> <FormatDate dateString={obj.when} want='hmb' />
 						</p>
 						<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
 							Location: {obj.where}
