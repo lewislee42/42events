@@ -9,14 +9,14 @@ export default function Login() {
 			<title>42 Events</title>
 		</Head>
 		<div className="min-h-screen dark:bg-gray-900 bg-gray-400">
-			<div className="py-20 sm:w-[70%] md:w-[50%] lg:w-[40%] mx-auto bg-white min-h-screen">
+			<div className="py-10 md:py-20 sm:w-[70%] md:w-[50%] lg:w-[40%] mx-auto bg-white min-h-screen">
 				<Image
 					src="/42_logo.svg"
 					className="mx-auto"
 					width={150}
 					height={150}
 				/>
-				<h1 className="text-center text-3xl text-gray-400 mb-20">Events</h1>
+				<h1 className="text-center text-3xl text-gray-400 mb-10 md:mb-20">Events</h1>
 				<div class="my-4 flex justify-center mb-5">
 					<label for="username" class="sr-only"></label>
 					<input type="text" id="username" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-gray-400 focus:border-gray-400 block w-[50%] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500" placeholder="Login" required/>
