@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { parseISO, intervalToDuration } from 'date-fns';
 import { evtColor } from '/src/components/DrawEventCard.js'
 import FormatDate from '/src/components/FormatDate'
 import { AiOutlineClockCircle } from "react-icons/ai";
@@ -5,7 +7,27 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { GiBlackHoleBolas } from 'react-icons/gi';
 import { Si42 } from 'react-icons/si';
 
+function Timer(EventDate) {
+	let CountDown = { start: new Date(), end: parseISO(EventDate) }
+	CountDown = intervalToDuration(CountDown)
+	const days = CountDown.days
+	let hrs = CountDown.hours
+	hrs = (hrs < 10) ? '0' + hrs : '' + hrs;
+	let mins = CountDown.minutes
+	mins = (mins < 10) ? '0' + mins : '' + mins;
+	let secs = CountDown.seconds
+	secs = (secs < 10) ? '0' + secs : '' + secs;
+	return days + 'D ' + hrs + 'H ' + mins + 'M ' + secs + 'S'
+}
+
 export default function DrawFeaturedEventCard({ props }) {
+	const [time, setTime] = useState(Timer(props.when));
+	useEffect(() => {
+    	setTimeout(() => {
+      		setTime(Timer(props.when));
+		}, 1000);
+	});
+
 	const ClassH2 = 'text-3xl text-center font-bold dark:text-white'
 	const ClassHr = 'w-[100%] my-[16px] ' +
 					'border-b-2 ' +
@@ -26,15 +48,17 @@ export default function DrawFeaturedEventCard({ props }) {
 						'text-sm border ' +
 						'text-neutral-950 ' +
 						'hover:border-neutral-50 hover:text-neutral-50'
-	const ClassTitle = 'm-0 px-2 ' +
+	const ClassTitle = 'flex flex-row m-0 px-2 ' +
 		               'text-2xl text-slate-700 ' +
 		               'uppercase font-bold'
+	const ClassTimer = 'text-white drop-shadow-md'
 	const ClassDesc = 'px-[8px] text-sm text-slate-600'
 	const ClassIcon = 'inline align-text-bottom ' +
 		              'mt-0 mr-[4px] mb-0 ml-[4px] ' +
 		              'text-slate-700 ' +
 					  'text-[125%]'
 	const ClassContent = 'text-slate-700'
+	
 	return (
 		<>
 			<h2 className={ClassH2}>Featured Event</h2>
@@ -57,7 +81,11 @@ export default function DrawFeaturedEventCard({ props }) {
 					</div>
 				</div>
 				<div>
-					<h4 className={ClassTitle}>{props.title}</h4>
+					<div className={ClassTitle}>
+						<span>{props.title}</span>
+						<span className='grow' />
+						<span className={ClassTimer}>{time}</span>
+					</div>
 					<div className={ClassDesc}>
 						<AiOutlineClockCircle 
 							className={ClassIcon} />
