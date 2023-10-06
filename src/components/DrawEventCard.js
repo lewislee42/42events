@@ -20,7 +20,7 @@ export function evtColor({ type }) {
 }
 
 export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad }) {
-	const ClassBox = 'w-[45%] min-w-[280px] max-w-[420px] ' +
+	const ClassBox = 'w-full min-w-[280px] ' +
 		             'h-84 m-[8px] p-0 ' +
 		             'border-solid border-2 ' +
 		             'flex justify-normal'
