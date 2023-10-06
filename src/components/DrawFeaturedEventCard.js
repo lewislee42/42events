@@ -1,5 +1,5 @@
 import { evtColor } from '/src/components/DrawEventCard.js'
-import Date from '/src/components/Date'
+import FormatDate from '/src/components/FormatDate'
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { GiBlackHoleBolas } from 'react-icons/gi';
@@ -61,7 +61,7 @@ export default function DrawFeaturedEventCard({ props }) {
 					<div className={ClassDesc}>
 						<AiOutlineClockCircle 
 							className={ClassIcon} />
-						<Date dateString={props.when} want='' />
+						<FormatDate dateString={props.when} want='' />
 						<span className='ml-4' />
 						<MdOutlineLocationOn
 							className={ClassIcon} /> {props.where}

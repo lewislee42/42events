@@ -1,4 +1,4 @@
-import Date from '/src/components/Date'
+import FormatDate from '/src/components/FormatDate'
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { GiBlackHoleBolas } from 'react-icons/gi';
@@ -44,10 +44,10 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 				<div className={ClassDate}
 					style={{backgroundColor: evtColor({type})}}>
 					<div className={ClassDay}>
-						<Date dateString={when} want='day' />
+						<FormatDate dateString={when} want='day' />
 					</div>
 					<div>
-						<Date dateString={when} want='mon' />
+						<FormatDate dateString={when} want='mon' />
 					</div>
 				</div>
 				<div>
@@ -55,7 +55,7 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 					<div className={ClassDesc}>
 						<AiOutlineClockCircle 
 							className={ClassIcon} />
-						<Date dateString={when} want='hmb' />
+						<FormatDate dateString={when} want='hmb' />
 						<span className='ml-4' />
 						<MdOutlineLocationOn
 							className={ClassIcon} /> {where}
