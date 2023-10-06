@@ -28,6 +28,7 @@ import Navbar from '/src/components/Navbar'
 import { getSortedEvtsData } from '/src/components/EventDataReader';
 import Image from 'next/image'
 import DrawEventCard from '/src/components/DrawEventCard'
+import VoteBar from '../../components/VoteBar'
 
 export async function getStaticProps() {
 	const EventsData = getSortedEvtsData();
@@ -39,9 +40,10 @@ export async function getStaticProps() {
 }
 
 export default function Vote({ EventsData }) {
-	let nextCoalitionEvent = 0
-	let UpcomingEvent = 0
-	let lastestEvent = 0
+	let yes = 10;
+	let no = 16;
+	let yesPercent = (yes / (yes + no)) * 100;
+	yesPercent = yesPercent.toString() + '%';
 	return (
 		<>
 			<Head>
@@ -49,7 +51,7 @@ export default function Vote({ EventsData }) {
 			</Head>
 			<Navbar />
 			<div className='sm:ml-64 h-screen bg-zinc-100'>
-				<div className='z-0 w-full h-[200px] p-0 m-0 flex p-10 bg-gray-200 dark:bg-gradient-to-r from-gray-500 from-10% via-gray-400 via-30% to-gray-500 to-90%'>
+				<div className='z-0 w-full sm:h-[400px] p-0 m-0 flex p-10 bg-gray-200 dark:bg-gradient-to-r from-gray-500 from-10% via-gray-400 via-30% to-gray-500 to-90%'>
 					<div className='grid grid-row-2 gap-y-[11%] h-full w-2/4 mr-5'>
 						<div className='w-full rounded-md bg-gray-50 dark:bg-gray-800 px-3 sm:px-4 drop-shadow-xl flex justify-normal'>
 							<div className='dark:text-gray-100 my-auto font-bold text-[20px] text-sm sm:text-2xl w-[50%] text-center'>Upcoming Events:</div>
@@ -73,16 +75,26 @@ export default function Vote({ EventsData }) {
 					</div>
 				</div>
 				
-				<div className='h-4/5 p-0 sm:p-6'>
-					<div className='h-2/4 sm:p-4 bg-white border border-zinc-100'>
-						<div className='h-[60px] w-auto justify-center flex p-1 py-4'>
-							<div className='font-bold w-2/4 text-sm py-1 px-3'>Events</div>
+				<div className='h-2/3 sm:h-3/4 p-0 sm:p-6 sm:flex'>
+					<div className='sm:w-2/4 sm:p-4 bg-white border border-zinc-100 sm:mr-3 h-2/4 sm:h-full'>
+						<div className='h-[60px] w-auto justify-center flex p-1 py-4 sm:mb-3'>
+							<div className='font-bold w-2/4 text-sm py-1 px-3 sm:text-xl sm:pt-0'>Events</div>
 							<div className='w-2/4 flex justify-end'>
 								<button className='font-light text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full m-0 hover:border-neutral-950 hover:text-neutral-950'>Event's Marks</button>
-								<button className='font-light ml-1 text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full hover:border-neutral-950 hover:text-neutral-950'>Filters ↓</button>
+								<button className='font-light ml-1 text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full hover:border-neutral-950 hover:text-neutral-950 mr-3'>Filters ↓</button>
 							</div>
 						</div>
-						<div className='overflow-scroll h-[240px] sm:h-[400px] p-2'>
+						<div className='overflow-scroll h-[75%] sm:h-[85%] p-2 mb-4 border-t sm:border-b'>
+							<section className='flex flex-wrap'>
+								{EventsData.map(({ id, title, type, when, where }) => (
+									<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} />
+								))}
+							</section>
+							<section className='flex flex-wrap'>
+								{EventsData.map(({ id, title, type, when, where }) => (
+									<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} />
+								))}
+							</section>
 							<section className='flex flex-wrap'>
 								{EventsData.map(({ id, title, type, when, where }) => (
 									<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} />
@@ -90,28 +102,34 @@ export default function Vote({ EventsData }) {
 							</section>
 						</div>
 					</div>
-					<div className='h-2/4 sm:mt-6 sm:p-4 bg-white border border-zinc-100'>
-						<div className='h-[60px] w-auto justify-center flex p-1 py-4'>
-							<div className='font-bold w-2/4 text-sm py-1 px-3'>Voting required Events</div>
+					<div className='sm:w-2/4 sm:p-4 bg-white border border-zinc-100 sm:ml-3 h-2/4 sm:h-full'>
+						<div className='h-[60px] w-auto justify-center flex p-1 py-4 sm:mb-3'>
+							<div className='font-bold w-2/4 text-sm py-1 px-3 sm:text-xl sm:pt-0'>Voting required Events</div>
 							<div className='w-2/4 flex justify-end'>
-								<div className='font-light text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full m-0 hover:border-neutral-950 hover:text-neutral-950'>Event's Marks</div>
-								<div className='font-light ml-1 text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full hover:border-neutral-950 hover:text-neutral-950'>Filters ↓</div>
+								<button className='font-light text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full m-0 hover:border-neutral-950 hover:text-neutral-950'>Event's Marks</button>
+								<button className='font-light ml-1 text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full hover:border-neutral-950 hover:text-neutral-950 mr-3'>Filters ↓</button>
 							</div>
 						</div>
-						<div className='overflow-scroll h-[240px] sm:h-[400px] p-2'>
-							<section className='flex flex-wrap'>
+						<div className='overflow-scroll h-[75%] sm:h-[85%] p-2 mb-4 border-t sm:border-b'>
+							<section className='w-full'>
 								{EventsData.map(({ id, title, type, when, where }) => (
-									<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} />
+									<div className='pr-4'>
+										<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} />
+										<VoteBar/>
+									</div>
+								))}
+							</section>
+							<section className='w-full'>
+								{EventsData.map(({ id, title, type, when, where }) => (
+									<div className='pr-4'>
+										<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} />
+										<VoteBar/>
+									</div>
 								))}
 							</section>
 						</div>
 					</div>
 				</div>
-				{/* <section className='flex flex-wrap'>
-					{EventsData.map(({ id, title, type, when, where }) => (
-						<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} />
-					))}
-				</section> */}
 				
 				
 				{/* <div class ="p-4">
