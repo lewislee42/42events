@@ -29,8 +29,8 @@ export default function Login() {
 					<input id="remember" type="checkbox" value="" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 rounded focus:ring-gray-500 dark:focus:ring-gray-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
 					<label for="remember" class="ml-2 text-sm font-medium text-gray-700">Remember Me</label>
 				</div>
-				<div className="flex my-4 justify-center">
-					<button type="button" onClick={()=>{Router.push('/Dashboard')}}class="w-[50%] focus:outline-none text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">SIGN IN</button>
+				<div className="flex my-4 justify-center text-center">
+					<a href="/Dashboard" class="w-[50%] focus:outline-none text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">SIGN IN</a>
 				</div>
 				<div class="flex my-4 justify-center text-gray-700">
 					<a href="">Forgot or change your password?</a>
