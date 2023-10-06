@@ -3,10 +3,10 @@
 // import Image from 'next/image'
 
 // export default function Vote() {
-// 	let yes = 10;
-// 	let no = 1;
-// 	let yesPercent = (yes / (yes + no)) * 100;
-// 	yesPercent = yesPercent.toString() + '%';
+	// let yes = 10;
+	// let no = 1;
+	// let yesPercent = (yes / (yes + no)) * 100;
+	// yesPercent = yesPercent.toString() + '%';
 // 	return (
 // 		<>
 // 			<Head>
@@ -14,9 +14,9 @@
 // 			</Head>
 // 			<Navbar />
 // 			<div className="ml-64 h-screen">
-// 				<div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-red-500">
-//   					<div className="bg-green-500 h-2.5 rounded-full" style={{width: yesPercent}}></div>
-// 				</div>
+				// <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-red-500">
+  				// 	<div className="bg-green-500 h-2.5 rounded-full" style={{width: yesPercent}}></div>
+				// </div>
 // 			</div>
 			
 // 		</>
@@ -26,6 +26,7 @@
 import Head from 'next/head'
 import Navbar from '/src/components/Navbar'
 import { getSortedEvtsData } from '/src/components/EventDataReader';
+import Image from 'next/image'
 import DrawEventCard from '/src/components/DrawEventCard'
 
 export async function getStaticProps() {
@@ -47,8 +48,8 @@ export default function Vote({ EventsData }) {
 				<title>42 Events</title>
 			</Head>
 			<Navbar />
-			<div className='sm:ml-64 h-screen'>
-				<div className=' z-0 w-full h-[200px] p-0 m-0 flex p-10 bg-gray-200 dark:bg-gradient-to-r from-gray-500 from-10% via-gray-400 via-30% to-gray-500 to-90%'>
+			<div className='sm:ml-64 h-screen bg-zinc-100'>
+				<div className='z-0 w-full h-[200px] p-0 m-0 flex p-10 bg-gray-200 dark:bg-gradient-to-r from-gray-500 from-10% via-gray-400 via-30% to-gray-500 to-90%'>
 					<div className='grid grid-row-2 gap-y-[11%] h-full w-2/4 mr-5'>
 						<div className='w-full rounded-md bg-gray-50 dark:bg-gray-800 px-3 sm:px-4 drop-shadow-xl flex justify-normal'>
 							<div className='dark:text-gray-100 my-auto font-bold text-[20px] text-sm sm:text-2xl w-[50%] text-center'>Upcoming Events:</div>
@@ -71,11 +72,40 @@ export default function Vote({ EventsData }) {
 						
 					</div>
 				</div>
-				<div className='h-2/5'>
-					
-				</div>
-				<div className='h-2/5'>
-					
+				
+				<div className='h-4/5 p-0 sm:p-6'>
+					<div className='h-2/4 sm:p-4 bg-white border border-zinc-100'>
+						<div className='h-[60px] w-auto justify-center flex p-1 py-4'>
+							<div className='font-bold w-2/4 text-sm py-1 px-3'>Events</div>
+							<div className='w-2/4 flex justify-end'>
+								<button className='font-light text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full m-0 hover:border-neutral-950 hover:text-neutral-950'>Event's Marks</button>
+								<button className='font-light ml-1 text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full hover:border-neutral-950 hover:text-neutral-950'>Filters ↓</button>
+							</div>
+						</div>
+						<div className='overflow-scroll h-[240px] sm:h-[400px] p-2'>
+							<section className='flex flex-wrap'>
+								{EventsData.map(({ id, title, type, when, where }) => (
+									<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} />
+								))}
+							</section>
+						</div>
+					</div>
+					<div className='h-2/4 sm:mt-6 sm:p-4 bg-white border border-zinc-100'>
+						<div className='h-[60px] w-auto justify-center flex p-1 py-4'>
+							<div className='font-bold w-2/4 text-sm py-1 px-3'>Voting required Events</div>
+							<div className='w-2/4 flex justify-end'>
+								<div className='font-light text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full m-0 hover:border-neutral-950 hover:text-neutral-950'>Event's Marks</div>
+								<div className='font-light ml-1 text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full hover:border-neutral-950 hover:text-neutral-950'>Filters ↓</div>
+							</div>
+						</div>
+						<div className='overflow-scroll h-[240px] sm:h-[400px] p-2'>
+							<section className='flex flex-wrap'>
+								{EventsData.map(({ id, title, type, when, where }) => (
+									<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} />
+								))}
+							</section>
+						</div>
+					</div>
 				</div>
 				{/* <section className='flex flex-wrap'>
 					{EventsData.map(({ id, title, type, when, where }) => (
@@ -187,14 +217,10 @@ export default function Vote({ EventsData }) {
 			// </div> */}
 
 			
-<footer class="bg-white rounded-lg shadow dark:bg-gray-900">
+<footer class="bg-white shadow dark:bg-zinc-100">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-        <div class="sm:flex sm:items-center sm:justify-between">
-            <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-            </a>
-            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+        <div class="sm:flex items-center justify-center">
+            <ul class="flex mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400 justify-center">
                 <li>
                     <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
                 </li>
@@ -209,8 +235,7 @@ export default function Vote({ EventsData }) {
                 </li>
             </ul>
         </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+        <hr class="my-6 border-gray-200 mx-auto dark:border-gray-700 my-8" />
     </div>
 </footer>
 
