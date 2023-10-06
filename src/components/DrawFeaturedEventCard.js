@@ -21,6 +21,7 @@ function Timer(EventDate) {
 }
 
 export default function DrawFeaturedEventCard({ props }) {
+	const [join, setJoin] = useState(false);
 	const [time, setTime] = useState(Timer(props.when));
 	useEffect(() => {
     	setTimeout(() => {
@@ -43,11 +44,16 @@ export default function DrawFeaturedEventCard({ props }) {
 	const ClassRewardIcon = 'inline align-text-bottom ' +
 							'mt-0 mr-[16px] mb-0 ml-[2px] ' +
 							'text-slate-700 text-[125%]'
-	const ClassButton = ' px-2 py-[3px] h-full ' +
-						'border border-neutral-950 ' +
-						'text-sm border ' +
-						'text-neutral-950 ' +
-						'hover:border-neutral-50 hover:text-neutral-50'
+	const ClassButton0 = 'px-[8px] py-[3px] h-full ' +
+						 'border border-neutral-950 ' +
+						 'text-sm border ' +
+						 'text-neutral-950 ' +
+						 'hover:border-neutral-50 hover:text-neutral-50'
+	const ClassButton1 = 'px-[8px] py-[3px] h-full ' +
+						 'border border-neutral-300 ' +
+						 'bg-slate-700 ' +
+						 'text-sm text-neutral-300 font-normal ' +
+						 'hover:border-neutral-50 hover:text-neutral-50'
 	const ClassTitle = 'flex flex-row m-0 px-2 ' +
 		               'text-2xl text-slate-700 ' +
 		               'uppercase font-bold'
@@ -77,7 +83,11 @@ export default function DrawFeaturedEventCard({ props }) {
 							₳</span> {props.ad}
 					</div>
 					<div className='w-[100%] mt-[16px] text-center'>
-						<button className={ClassButton}>Join</button>
+						<button 
+							onClick={()=>{join ? setJoin(false) : setJoin(true)}}
+							className={join ? ClassButton1 : ClassButton0}>
+							{join ? 'Unregister' : 'Join' }
+						</button>
 					</div>
 				</div>
 				<div>
