@@ -8,7 +8,7 @@ export async function getSortedEvtsData(props) {
 	const evtsDirectory = path.join(process.cwd(), props.path);
 	// Get file names under /events
 	const fileNames = fs.readdirSync(evtsDirectory);
-	const allEvtsData = fileNames.map((fileName) => {
+	const allEvtsData = await Promise.all(fileNames.map(async (fileName) => {
 		// Remove ".md" from file name to get id
 		const id = fileName.replace(/\.md$/, '');
 
@@ -20,13 +20,19 @@ export async function getSortedEvtsData(props) {
 		const matterResult = matter(fileContents);
 		const contentsMd = matterResult.content;
 
+		// Use remark-html to convert MD contents to Html
+		const processedContent = await remark()
+			.use(html)
+			.process(matterResult.content);
+		const contentsHtml = processedContent.toString();
+
 		// Combine the data with the id
 		return {
 			id,
-			contentsMd,
+			contentsHtml,
 			...matterResult.data,
 		};
-	});
+	}));
 	// Sort evts by date
 	return allEvtsData.sort((a, b) => {
 		if (a.when > b.when) {

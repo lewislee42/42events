@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import 'src/styles/featured_event_card.css'
 import Head from 'next/head'
 
 export default function App({ Component, pageProps }) {
