@@ -31,7 +31,7 @@ import DrawEventCard from '/src/components/DrawEventCard'
 import VoteBar from '../../components/VoteBar'
 
 export async function getStaticProps() {
-	const EventsData = getSortedEvtsData();
+	const EventsData = await getSortedEvtsData({ path: '/data/events' });
 	return {
 		props: {
 			EventsData,
