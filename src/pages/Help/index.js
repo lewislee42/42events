@@ -17,6 +17,7 @@ export default function Help() {
 				height={500}
 			/>
 			<p className="mt-6 mx-auto text-center text-3xl">Meanwhile, RTFM!</p>
+			<p className="mx-auto text-center text-lg">(PS: TFM is MIC)</p>
 			
 		</div>
 	</>
