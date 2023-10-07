@@ -32,7 +32,7 @@ export default function Dashboard({ EventsData, Featured, Votables }) {
 			</Head>
 			<Navbar />
 			<div className='sm:ml-64 h-screen bg-zinc-100'>
-				<div className='z-0 w-full sm:h-[400px] p-0 m-0 sm:flex p-10 bg-gray-200 dark:bg-gradient-to-r from-gray-500 from-10% via-gray-400 via-30% to-gray-500 to-90%'>
+				<div className='z-0 w-full sm:h-[400px] p-4 pt-10 m-0 sm:flex sm:p-10 bg-gray-200 dark:bg-gradient-to-r from-gray-500 from-10% via-gray-400 via-30% to-gray-500 to-90%'>
 					<div className='grid grid-rows-2 gap-x-[11%] sm:gap-y-[11%] h-full sm:w-2/4 sm:mr-5'>
 						<div className='w-full rounded-md bg-gray-50 dark:bg-gray-800 p-2 px-5 mb-3 sm:mb-0 h-full'>
 							<div className='dark:text-gray-100 my-auto font-bold text-[20px] text-xl sm:text-2xl text-center pb-2'>Next Coalition Event</div>
