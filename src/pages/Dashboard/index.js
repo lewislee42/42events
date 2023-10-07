@@ -137,12 +137,12 @@ export default function Dashboard({ EventsData, Featured, Votables }) {
 						</div>
 						<div className='overflow-scroll h-[75%] sm:h-[85%] p-2 mb-4 border-t sm:border-b'>
 							<section>
-								{event1 === ''? EventsData.map((props) => (
+								{event1 === ''? Votables.map((props) => (
 									<div className='pr-4'>
 										<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
 										<VoteBar/>
 									</div>
-								)) : EventsData.map((props) => {
+								)) : Votables.map((props) => {
 									if (props.type == event1) {
 										return (
 											<div className='pr-4'>
