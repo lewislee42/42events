@@ -7,16 +7,16 @@ import Rating from '../../components/Rating'
 import { useState } from 'react'
 
 var arr = [
-	{id:'hello',title:'Badminton',type:'sports',when:'2023-09-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'2'},
-	{id:'hello1',title:'Coalition',type:'coallition',when:'2023-08-12T16:30:00',where:'Campus',bh:'1',ep:'5',ad:'-',contentHTML:'Steamboat fest!', rating:'3'},
-	{id:'hello2',title:'Board Game',type:'indoor hobby',when:'2023-08-10T16:30:00',where:'Campus',bh:'-',ep:'-',ad:'-',contentHTML:'Settlers with our GameMaster Boon Han!',rating:'4'},
-	{id:'hello3',title:'Hackathon',type:'upskilling',when:'2023-07-12T16:30:00',where:'Campus',bh:'20',ep:'10',ad:'200',contentHTML:'Create a card game and host it online',rating:'5'},
-	{id:'hello4',title:'ETHKL Talk',type:'upskilling',when:'2023-06-15T16:30:00',where:'Online',bh:'5',ep:'5',ad:'-',contentHTML:'Googlemeet Online ETHKL',rating:'3'},
-	{id:'hello5',title:'Khazanah',type:'upskilling',when:'2023-05-12T16:30:00',where:'Campus',bh:'10',ep:'30',ad:'-',contentHTML:'Meeting Khazanah C-levels', rating:'5'},
-	{id:'hello6',title:'Board Game',type:'indoor hobby',when:'2023-05-10T16:30:00',where:'Mcdonald',bh:'-',ep:'-',ad:'-',contentHTML:'Settlers with our GameMaster Boon Han!',rating:'5'},
-	{id:'hello7',title:'Badminton',type:'sports',when:'2023-04-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'5'},
-	{id:'hello8',title:'Badminton',type:'sports',when:'2023-03-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'4'},
-	{id:'hello9',title:'Badminton',type:'sports',when:'2023-02-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentHTML:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'5'},
+	{id:'hello',title:'Badminton',type:'sports',when:'2023-09-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentsHtml:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'2'},
+	{id:'hello1',title:'Coalition',type:'coallition',when:'2023-08-12T16:30:00',where:'Campus',bh:'1',ep:'5',ad:'-',contentsHtml:'Steamboat fest!', rating:'3'},
+	{id:'hello2',title:'Board Game',type:'indoor hobby',when:'2023-08-10T16:30:00',where:'Campus',bh:'-',ep:'-',ad:'-',contentsHtml:'Settlers with our GameMaster Boon Han!',rating:'4'},
+	{id:'hello3',title:'Hackathon',type:'upskilling',when:'2023-07-12T16:30:00',where:'Campus',bh:'20',ep:'10',ad:'200',contentsHtml:'Create a card game and host it online',rating:'5'},
+	{id:'hello4',title:'ETHKL Talk',type:'upskilling',when:'2023-06-15T16:30:00',where:'Online',bh:'5',ep:'5',ad:'-',contentsHtml:'Googlemeet Online ETHKL',rating:'3'},
+	{id:'hello5',title:'Khazanah',type:'upskilling',when:'2023-05-12T16:30:00',where:'Campus',bh:'10',ep:'30',ad:'-',contentsHtml:'Meeting Khazanah C-levels', rating:'5'},
+	{id:'hello6',title:'Board Game',type:'indoor hobby',when:'2023-05-10T16:30:00',where:'Mcdonald',bh:'-',ep:'-',ad:'-',contentsHtml:'Settlers with our GameMaster Boon Han!',rating:'5'},
+	{id:'hello7',title:'Badminton',type:'sports',when:'2023-04-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentsHtml:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'5'},
+	{id:'hello8',title:'Badminton',type:'sports',when:'2023-03-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentsHtml:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'4'},
+	{id:'hello9',title:'Badminton',type:'sports',when:'2023-02-12T16:30:00',where:'Optimum Train',bh:'-',ep:'-',ad:'-',contentsHtml:'Two racquets and a shuttlecock, trip, fall, and shoot cock.',rating:'5'},
 ]
 
 export default function History() {
