@@ -1,13 +1,28 @@
 #evcon {
-  padding: 8px;
-  font-size: 85%;
+	padding: 8px;
+	font-size: 85%;
 }
 
 #evcon h1 {
-  font-weight: bold;
-  font-size: 110%;
+	font-weight: bold;
+	font-size: 110%;
 }
 
 #evcon h2 {
-  font-weight: bold;
+	font-weight: bold;
+}
+
+#evcon ul {
+	margin-left: 16px;
+	list-style-type: '\270F';
+	list-style-position: outside;
+}
+
+#evcon li {
+	padding-left: 8px;
+}
+
+#evcon a {
+	color: blue;
+	text-decoration: underline;
 }

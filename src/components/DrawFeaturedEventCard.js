@@ -94,7 +94,9 @@ export default function DrawFeaturedEventCard({ props }) {
 					<div className={ClassTitle}>
 						<span>{props.title}</span>
 						<span className='grow' />
-						<span className={ClassTimer}>{time}</span>
+						<span className={ClassTimer} suppressHydrationWarning>
+							{time}
+						</span>
 					</div>
 					<div className={ClassDesc}>
 						<AiOutlineClockCircle 
