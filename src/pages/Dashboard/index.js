@@ -3,23 +3,24 @@ import Navbar from '/src/components/Navbar'
 import { getSortedEvtsData } from '/src/components/EventDataReader'
 import DrawFeaturedEventCard from '/src/components/DrawFeaturedEventCard'
 import DrawEventCard from '/src/components/DrawEventCard'
+import DrawEventCardModal from '/src/components/DrawEventCardModal'
 import VoteBar from '../../components/VoteBar'
 
 export async function getStaticProps() {
 	const EventsData = await getSortedEvtsData({ path: '/data/events' });
 	let Featured = await getSortedEvtsData({ path: '/data/featured' });
 	Featured = Featured[0]
+	const Votables = await getSortedEvtsData({ path: '/data/votable' });
 	return {
 		props: {
 			EventsData,
 			Featured,
+			Votables,
 		},
 	};
 }
 
-export default function Dashboard({ EventsData, Featured, ftData }) {
-	const ftEvent = Featured[0]
-
+export default function Dashboard({ EventsData, Featured, Votables }) {
 	let yes = 10;
 	let no = 16;
 	let yesPercent = (yes / (yes + no)) * 100;
@@ -62,19 +63,12 @@ export default function Dashboard({ EventsData, Featured, ftData }) {
 							</div>
 						</div>
 						<div className='overflow-scroll h-[75%] sm:h-[85%] p-2 mb-4 border-t sm:border-b'>
-							<section className='flex flex-wrap'>
-								{EventsData.map(({ id, title, type, when, where, bh, ep, ad }) => (
-									<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} bh={bh} ep={ep} ad={ad} />
-								))}
-							</section>
-							<section className='flex flex-wrap'>
-								{EventsData.map(({ id, title, type, when, where, bh, ep, ad }) => (
-									<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} bh={bh} ep={ep} ad={ad} />
-								))}
-							</section>
-							<section className='flex flex-wrap'>
-								{EventsData.map(({ id, title, type, when, where, bh, ep, ad }) => (
-									<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} bh={bh} ep={ep} ad={ad} />
+							<section>
+								{EventsData.map((props) => (
+									<div className='flex'>
+										<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
+										<DrawEventCardModal obj={props} />
+									</div>
 								))}
 							</section>
 						</div>
@@ -89,15 +83,7 @@ export default function Dashboard({ EventsData, Featured, ftData }) {
 						</div>
 						<div className='overflow-scroll h-[75%] sm:h-[85%] p-2 mb-4 border-t sm:border-b'>
 							<section className='w-full'>
-								{EventsData.map(({ id, title, type, when, where, bh, ep, ad }) => (
-									<div className='pr-4'>
-										<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} bh={bh} ep={ep} ad={ad} />
-										<VoteBar/>
-									</div>
-								))}
-							</section>
-							<section className='w-full'>
-								{EventsData.map(({ id, title, type, when, where, bh, ep, ad }) => (
+								{Votables.map(({ id, title, type, when, where, bh, ep, ad }) => (
 									<div className='pr-4'>
 										<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} bh={bh} ep={ep} ad={ad} />
 										<VoteBar/>

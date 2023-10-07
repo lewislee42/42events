@@ -1,7 +1,7 @@
 ---
 title: 'Badminton'
 type: 'sports'
-when: '2023-10-12T16:30:00'
+when: '2023-10-12T16:00:00'
 where: 'Forum Optimum'
 bh: 0
 ep: 0
