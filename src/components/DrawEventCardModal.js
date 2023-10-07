@@ -81,9 +81,13 @@ export default function DrawEventCardModal({obj}) {
 							<span className="mr-6"><Si42 className="inline mr-2"/> Eval Points: {obj.ep}</span>
 							<span>₳ Alterian: {obj.ad}</span>
 						</p>
-						<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-							Description: {obj.contentHTML}
-						</p>
+						<div class="inine text-base leading-relaxed text-gray-500 dark:text-gray-400">
+							Description: 
+							<div id='evcon'
+								dangerouslySetInnerHTML={
+									{ __html: obj.contentsHtml }
+								} />
+						</div>
 						
 					</div>
 					{/* <!-- Modal footer --> */}
