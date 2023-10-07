@@ -8,7 +8,7 @@ ep: '?'
 ad: '?'
 ---
 
-# Why should you join
+# Why should you join?
 ## Experience
 Gain insight into the world of Hackathons and level-up your experience in your resume.
 
