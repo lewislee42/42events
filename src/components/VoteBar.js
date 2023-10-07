@@ -1,17 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function calPerc(yes, no) {
-	if (yes === 0 && no === 0)
+	if (yes + no == 0)
 		return "50%";
 	
-	let yesPercent = (yes / (yes + no)) * 100;
-	return yesPercent.toString() + '%';
+	let yesPercent = Math.floor((yes * 100) / (yes + no));
+	console.log(yes, no, yesPercent)
+	return yesPercent + '%';
 }
 
 
 export default function VoteBar() {
-	const [yes, changeYes] = useState(Math.floor(Math.random() * 50));
-	const [no, changeNo] = useState(Math.floor(Math.random() * 50));
+	let [yes, changeYes] = useState(0);
+	let [no, changeNo] = useState(0);
+	
+	useEffect(() => {
+		// Generate random values for yes and no after component mounts
+		changeYes(Math.floor(Math.random() * 50));
+		changeNo(Math.floor(Math.random() * 50));
+	}, []);
 	
 	return (
 		<div className='w-full ml-2 mb-4 text-center mx-auto' style={{marginTop: "-8px"}}>
