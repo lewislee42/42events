@@ -33,10 +33,10 @@ export default function DrawFeaturedEventCard({ props }) {
 	const ClassHr = 'w-[100%] my-[16px] ' +
 					'border-b-2 ' +
 					'border-b-slate-300 dark:border-b-slate-700'
-	const ClassBox = 'w-[70%] min-w-[280px] max-w-[840px] ' +
-		             'min-h-[168px] mt-[8px] mb-[8px] mx-auto p-[8px] ' +
+	const ClassBox = 'w-[80%] min-w-[280px] max-w-[840px] ' +
+		             'min-h-[180px] mt-[8px] mb-[8px] mx-auto p-[8px] ' +
 		             'rounded-lg bg-opacity-75 ' +
-		             'flex justify-normal' +
+		             'flex justify-normal ' +
 					 'text-slate-600'
 	const ClassReward = 'w-[25%] min-w-[126px] max-w-[168px] h-full ' +
 						'm-0 py-[8px] px-[12px] ' +
@@ -107,7 +107,7 @@ export default function DrawFeaturedEventCard({ props }) {
 							className={ClassIcon} /> {props.where}
 						<br />
 					</div>
-					<div className='overflow-scroll h-[168px]'>
+					<div className='overflow-scroll border-t border-slate-700 h-[168px]'>
 						<div id='evcon' className={ClassContent}
 							dangerouslySetInnerHTML={{ __html: props.contentsHtml }} />
 					</div>
