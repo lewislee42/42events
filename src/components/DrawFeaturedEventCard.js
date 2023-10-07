@@ -29,11 +29,11 @@ export default function DrawFeaturedEventCard({ props }) {
 		}, 1000);
 	});
 
-	const ClassH2 = 'text-smsm:text-3xl text-center font-bold dark:text-white'
-	const ClassHr = 'w-[100%] my-[16px] ' +
+	const ClassH2 = 'text-xl sm:text-2xl text-center font-bold dark:text-white'
+	const ClassHr = 'w-[100%] my-[14px] ' +
 					'border-b-2 ' +
 					'border-b-gray-50 dark:border-b-slate-700'
-	const ClassBox = 'w-[80%] sm:min-w-[280px] max-w-[840px] ' +
+	const ClassBox = 'w-[80%] min-w-[280px] sm:min-w-[280px] max-w-[840px] ' +
 		             'min-h-[180px] mt-[8px] mb-[8px] mx-auto p-[8px] ' +
 		             'rounded-lg bg-opacity-75 ' +
 		             'flex justify-normal ' +
@@ -46,14 +46,14 @@ export default function DrawFeaturedEventCard({ props }) {
 							'text-slate-700 text-[100%] sm:text-[100%]'
 	const ClassButton0 = 'px-[8px] py-[3px] h-full ' +
 						 'border border-neutral-950 ' +
-						 'text-sm border ' +
+						 'text-xs sm:text-base border ' +
 						 'text-neutral-950 ' +
-						 'hover:border-neutral-50 hover:text-neutral-50'
+						 'hover:border-neutral-50 hover:text-neutral-50 z-10 rounded-md'
 	const ClassButton1 = 'px-[8px] py-[3px] h-full ' +
-						 'border border-neutral-300 ' +
-						 'bg-slate-700 ' +
-						 'text-sm text-neutral-300 font-normal ' +
-						 'hover:border-neutral-50 hover:text-neutral-50'
+						 'border border-neutral-50 ' +
+						 'bg-red-500 ' +
+						 'text-xs sm:text-base text-neutral-50 ' +
+						 ' hover:bg-red-600 z-10 rounded-md'
 	const ClassTitle = 'sm:flex flex-col sm:flex-row m-0 px-2 ' +
 		               'text-2xl text-slate-700 ' +
 		               'uppercase font-bold'
@@ -82,15 +82,15 @@ export default function DrawFeaturedEventCard({ props }) {
 							<div >{props.ep}</div>
 						</div>
 						<div className="w-[100%] flex pt-2 justify-center">
-							<span className={`ml-[6px] sm:ml-0 pt-[1px] sm:pt-0 sm:pl-[8px] pr-[2px] text-[90%] sm:text-[140%] ${ClassRewardIcon}`}>₳</span>
+							<span className={`ml-[6px] sm:ml-0 sm:pt-0 sm:pl-[8px] pr-[2px] text-[100%] ${ClassRewardIcon}`}>₳</span>
 							<div>{props.ad}</div>
 						</div>
 					</div>
-					<div className='w-[100%] text-center'>
+					<div className='w-full text-center flex justify-start sm:justify-center pt-[125px] sm:pt-[14px] z-10 rounded-md'>
 						<button 
 							onClick={()=>{join ? setJoin(false) : setJoin(true)}}
 							className={join ? ClassButton1 : ClassButton0}>
-							{join ? 'Unregister' : 'Join' }
+							{join ? 'Leave' : 'Join' }
 						</button>
 					</div>
 				</div>
@@ -109,7 +109,7 @@ export default function DrawFeaturedEventCard({ props }) {
 							className={ClassIcon} /> {props.where}
 						<br />
 					</div>
-					<div className='mt-2 overflow-scroll border-t border-slate-700 h-[140px]'>
+					<div className='mt-2 overflow-scroll border-t border-slate-700 h-[140px] z-0'>
 						<div id='evcon' className={ClassContent}
 							dangerouslySetInnerHTML={{ __html: props.contentsHtml }} />
 					</div>
