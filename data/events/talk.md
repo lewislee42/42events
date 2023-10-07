@@ -9,6 +9,7 @@ ad: 0
 ---
 
 # Speedrun Ethereum 101
+
 Topics covered:
 - Visualizing Ethereum via Etherscan block explorer
 - Conceptualizing how Ethereum works in the past, present, & what's to come
