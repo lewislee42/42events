@@ -10,8 +10,8 @@ function calPerc(yes, no) {
 
 
 export default function VoteBar() {
-	const [yes, changeYes] = useState(0);
-	const [no, changeNo] = useState(0);
+	const [yes, changeYes] = useState(Math.floor(Math.random() * 50));
+	const [no, changeNo] = useState(Math.floor(Math.random() * 50));
 	
 	return (
 		<div className='w-full ml-2 mb-4 text-center mx-auto' style={{marginTop: "-8px"}}>
