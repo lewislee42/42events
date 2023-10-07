@@ -1,20 +1,21 @@
 import { AiOutlineDelete } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
 import { BiMessageDetail } from 'react-icons/bi';
+import VoteBar from './VoteBar';
 
 
 function boxColor(event) {
 	switch (event) {
 		case 'sports':
-			return 'm-[8px] border-emerald-500 border-solid border-2 min-w-[280px]'; //Emerald-500
+			return 'm-[8px] mr-[-8px] border-emerald-500 border-solid border-2 min-w-[280px]'; //Emerald-500
 		case 'indoor hobby':
-			return 'm-[8px] border-purple-500 border-solid border-2 h-84 min-w-[280px]'; //Purple-500
+			return 'm-[8px] mr-[-8px] border-purple-500 border-solid border-2 h-84 min-w-[280px]'; //Purple-500
 		case 'upskilling':
-			return 'm-[8px] border-lime-500 border-solid border-2 h-84 min-w-[280px]'; //Lime-500
+			return 'm-[8px] mr-[-8px] border-lime-500 border-solid border-2 h-84 min-w-[280px]'; //Lime-500
 		case 'coallition':
-			return 'm-[8px] border-blue-500 border-solid border-2 h-84 min-w-[280px]'; //Blue-500
+			return 'm-[8px] mr-[-8px] border-blue-500 border-solid border-2 h-84 min-w-[280px]'; //Blue-500
 		default:
-			return 'm-[8px] border-zinc-500 border-solid border-2 h-84 min-w-[280px]'; //Zinc-500
+			return 'm-[8px] mr-[-8px] border-zinc-500 border-solid border-2 h-84 min-w-[280px]'; //Zinc-500
 	}
 }
 
@@ -52,6 +53,7 @@ export default function RequestEventCard(props) {
 					</div>
 				</div>
 			</div>
+			<VoteBar/>
 			{commentDisplay? (
 			<div className="m-[8px] mt-[-8px] min-h-[50px] p-6 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
 				<p class="text-gray-500 dark:text-gray-400">
