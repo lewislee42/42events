@@ -31,7 +31,7 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 	const ClassTitle = 'm-0 px-2 ' +
 		               'text-slate-600 ' +
 		               'uppercase font-bold'
-	const ClassDesc = 'px-[8px] text-sm text-black dark:text-slate-600'
+	const ClassDesc = 'px-[8px] text-xs sm:text-sm text-black dark:text-slate-600'
 	const ClassIcon = 'inline align-text-bottom ' +
 		              'mt-0 mr-[4px] mb-0 ml-[4px] ' +
 		              'text-slate-700 dark:text-slate-600 ' +
@@ -56,7 +56,7 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 						<AiOutlineClockCircle 
 							className={ClassIcon} />
 						<FormatDate dateString={when} want='hmb' />
-						<span className='ml-4' />
+						<span className='ml-2 sm:ml-4' />
 						<MdOutlineLocationOn
 							className={ClassIcon} /> {where}
 						<br />

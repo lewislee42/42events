@@ -5,6 +5,7 @@ import DrawFeaturedEventCard from '/src/components/DrawFeaturedEventCard'
 import DrawEventCard from '/src/components/DrawEventCard'
 import DrawEventCardModal from '/src/components/DrawEventCardModal'
 import VoteBar from '../../components/VoteBar'
+import { useState } from 'react'
 
 export async function getStaticProps() {
 	const EventsData = await getSortedEvtsData({ path: '/data/events' });
@@ -20,7 +21,15 @@ export async function getStaticProps() {
 	};
 }
 
+let filterClassActive = {position: "absolute", inset: "0px auto auto 0px", margin: "-10px 0px 0px -75px", transform: "translate3d(-0px, 38px, 0px)"};
+let filterClassDisabled = {display:"none", position: "absolute", inset: "0px auto auto 0px", margin: "0px", transform: "translate3d(-0px, 38px, 0px)"};
+
 export default function Dashboard({ EventsData, Featured, Votables }) {
+	const [event, changeEvent] = useState('');
+	const [filter, changeFilter] = useState(false);
+	const [event1, changeEvent1] = useState('');
+	const [filter1, changeFilter1] = useState(false);
+
 	let yes = 10;
 	let no = 16;
 	let yesPercent = (yes / (yes + no)) * 100;
@@ -37,7 +46,7 @@ export default function Dashboard({ EventsData, Featured, Votables }) {
 						<div className='w-full rounded-md bg-gray-50 dark:bg-gray-800 p-2 px-5 mb-3 sm:mb-0 h-full'>
 							<div className='dark:text-gray-100 my-auto font-bold text-[20px] text-xl sm:text-2xl text-center pb-2'>Next Coalition Event</div>
 							<div className='justify-center flex mt-0 p-0 border-t h-2/3'>
-								<div className='dark:text-gray-100 m-auto font-bold text-[20px] text-xl sm:text-2xl'>Currently in session</div>
+								<div className='dark:text-gray-100 m-auto font-bold text-[20px] text-xl sm:text-2xl'>Voting now</div>
 							</div>
 						</div>
 						<div className='w-full rounded-md bg-gray-50 dark:bg-gray-800 p-2 px-5 mt-3 sm:mt-0 mb-3 sm:mb-0 h-full'>
@@ -59,18 +68,52 @@ export default function Dashboard({ EventsData, Featured, Votables }) {
 							<div className='font-bold w-2/4 text-sm py-1 px-3 sm:text-xl sm:pt-0'>Events</div>
 							<div className='w-2/4 flex justify-end'>
 								<button className='font-light text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full m-0 hover:border-neutral-950 hover:text-neutral-950'>Event's Marks</button>
-								<button className='font-light ml-1 text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full hover:border-neutral-950 hover:text-neutral-950 mr-3'>Filters ↓</button>
+								{/* <button className='font-light ml-1 text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full mr-3'>Filters ↓</button> */}
+								<div className="relative">
+									<button onClick={()=>filter? changeFilter(false):changeFilter(true)} class="focus:outline-none font-light ml-1 text-sm border border-teal-400 text-teal-400 px-2 py-[3px] hover:border-neutral-950 hover:text-neutral-950" type="button">Filters ↓ 
+									</button>
+									{/* <!-- Dropdown menu --> */}
+									<div className="text-sm bg-gray-100 w-[200%] rounded-b-lg overflow-hidden" style={filter?filterClassActive:filterClassDisabled }>
+										<button onClick={()=>{changeEvent('');changeFilter(false)}} className="text-left block w-full px-4 py-2 hover:bg-gray-200">All Events</button>
+										<button onClick={()=>{changeEvent('coallition');changeFilter(false)}} className="text-left block w-full px-4 py-2 hover:bg-gray-200">Coalition Events</button>
+										<button onClick={()=>{changeEvent('sports');changeFilter(false)}} className="text-left block w-full px-4 py-2 hover:bg-gray-200">Sports Events</button>
+										<button onClick={()=>{changeEvent('indoor hobby');changeFilter(false)}} className="text-left block w-full px-4 py-2 hover:bg-gray-200">Indoor Hobby Events</button>
+										<button onClick={()=>{changeEvent('upskilling');changeFilter(false)}} className="text-left block w-full px-4 py-2 hover:bg-gray-200">Upskilling Events</button>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div className='overflow-scroll h-[75%] sm:h-[85%] p-2 mb-4 border-t sm:border-b'>
 							<section>
-								{EventsData.map((props) => (
+								{event === ''? EventsData.map((props) => (
 									<div className='flex'>
 										<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
 										<DrawEventCardModal obj={props} />
 									</div>
+								)) : EventsData.map((props) => {
+									if (props.type == event) {
+										return (
+											<div className='flex'>
+												<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
+												<DrawEventCardModal obj={props} />
+											</div>
+										)
+									}
+									else
+										return '';
+								})}
+							</section>
+							{/* <section className='flex flex-wrap'>
+								{EventsData.map(({ id, title, type, when, where, bh, ep, ad }) => (
+									<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} bh={bh} ep={ep} ad={ad} />
 								))}
 							</section>
+							<section className='flex flex-wrap'>
+								{EventsData.map(({ id, title, type, when, where, bh, ep, ad }) => (
+									<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} bh={bh} ep={ep} ad={ad} />
+								))}
+							</section> */}
+							
 						</div>
 					</div>
 					<div className='sm:w-2/4 sm:p-4 bg-white border border-zinc-100 sm:ml-3 h-2/4 sm:h-full'>
@@ -78,17 +121,39 @@ export default function Dashboard({ EventsData, Featured, Votables }) {
 							<div className='font-bold w-2/4 text-sm py-1 px-3 sm:text-xl sm:pt-0'>Voting required Events</div>
 							<div className='w-2/4 flex justify-end'>
 								<button className='font-light text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full m-0 hover:border-neutral-950 hover:text-neutral-950'>Event's Marks</button>
-								<button className='font-light ml-1 text-sm border border-teal-400 text-teal-400 px-2 py-[3px] h-full hover:border-neutral-950 hover:text-neutral-950 mr-3'>Filters ↓</button>
+								<div className="relative">
+									<button onClick={()=>filter1? changeFilter1(false):changeFilter1(true)} class="focus:outline-none font-light ml-1 text-sm border border-teal-400 text-teal-400 px-2 py-[3px] hover:border-neutral-950 hover:text-neutral-950" type="button">Filters ↓ 
+									</button>
+									{/* <!-- Dropdown menu --> */}
+									<div className="text-sm bg-gray-100 w-[200%] rounded-b-lg overflow-hidden" style={filter1?filterClassActive:filterClassDisabled }>
+										<button onClick={()=>{changeEvent1('');changeFilter1(false)}} className="text-left block w-full px-4 py-2 hover:bg-gray-200">All Events</button>
+										<button onClick={()=>{changeEvent1('coallition');changeFilter1(false)}} className="text-left block w-full px-4 py-2 hover:bg-gray-200">Coalition Events</button>
+										<button onClick={()=>{changeEvent1('sports');changeFilter1(false)}} className="text-left block w-full px-4 py-2 hover:bg-gray-200">Sports Events</button>
+										<button onClick={()=>{changeEvent1('indoor hobby');changeFilter1(false)}} className="text-left block w-full px-4 py-2 hover:bg-gray-200">Indoor Hobby Events</button>
+										<button onClick={()=>{changeEvent1('upskilling');changeFilter1(false)}} className="text-left block w-full px-4 py-2 hover:bg-gray-200">Upskilling Events</button>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div className='overflow-scroll h-[75%] sm:h-[85%] p-2 mb-4 border-t sm:border-b'>
-							<section className='w-full'>
-								{Votables.map(({ id, title, type, when, where, bh, ep, ad }) => (
+							<section>
+								{event1 === ''? EventsData.map((props) => (
 									<div className='pr-4'>
-										<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} bh={bh} ep={ep} ad={ad} />
+										<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
 										<VoteBar/>
 									</div>
-								))}
+								)) : EventsData.map((props) => {
+									if (props.type == event1) {
+										return (
+											<div className='pr-4'>
+												<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
+												<VoteBar/>
+											</div>
+										)
+									}
+									else
+										return '';
+								})}
 							</section>
 						</div>
 					</div>
@@ -118,3 +183,9 @@ export default function Dashboard({ EventsData, Featured, Votables }) {
 		</>
 	)
 }
+
+
+{/* <div className='pr-4'>
+										<DrawEventCard key={id} id={id} title={title} type={type} when={when} where={where} bh={bh} ep={ep} ad={ad} />
+										<VoteBar/>
+									</div> */}
