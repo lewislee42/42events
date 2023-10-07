@@ -29,21 +29,21 @@ export default function DrawFeaturedEventCard({ props }) {
 		}, 1000);
 	});
 
-	const ClassH2 = 'text-3xl text-center font-bold dark:text-white'
+	const ClassH2 = 'text-smsm:text-3xl text-center font-bold dark:text-white'
 	const ClassHr = 'w-[100%] my-[16px] ' +
 					'border-b-2 ' +
-					'border-b-slate-300 dark:border-b-slate-700'
-	const ClassBox = 'w-[80%] min-w-[280px] max-w-[840px] ' +
+					'border-b-gray-50 dark:border-b-slate-700'
+	const ClassBox = 'w-[80%] sm:min-w-[280px] max-w-[840px] ' +
 		             'min-h-[180px] mt-[8px] mb-[8px] mx-auto p-[8px] ' +
 		             'rounded-lg bg-opacity-75 ' +
 		             'flex justify-normal ' +
 					 'text-slate-600'
-	const ClassReward = 'w-[25%] min-w-[126px] max-w-[168px] h-full ' +
-						'm-0 py-[8px] px-[12px] ' +
-						'text-slate-600 text-4xl font-bold align-middle'
-	const ClassRewardIcon = 'inline align-text-bottom ' +
-							'mt-0 mr-[16px] mb-0 ml-[2px] ' +
-							'text-slate-700 text-[125%]'
+	const ClassReward = 'w-[25%] min-w-[50px] sm:min-w-[126px] sm:min-w-[150px] sm:max-w-[168px] sm:h-full ' +
+						'm-0 sm:py-[8px] sm:px-[4px] ' +
+						'text-slate-600 text-normal sm:text-4xl font-bold align-middle'
+	const ClassRewardIcon = 'inline align-text-center ' +
+							'mt-0 mr-[10px] sm:mr-[16px] mb-0 ml-[2px] ' +
+							'text-slate-700 text-[100%] sm:text-[100%]'
 	const ClassButton0 = 'px-[8px] py-[3px] h-full ' +
 						 'border border-neutral-950 ' +
 						 'text-sm border ' +
@@ -54,10 +54,10 @@ export default function DrawFeaturedEventCard({ props }) {
 						 'bg-slate-700 ' +
 						 'text-sm text-neutral-300 font-normal ' +
 						 'hover:border-neutral-50 hover:text-neutral-50'
-	const ClassTitle = 'flex flex-row m-0 px-2 ' +
+	const ClassTitle = 'sm:flex flex-col sm:flex-row m-0 px-2 ' +
 		               'text-2xl text-slate-700 ' +
 		               'uppercase font-bold'
-	const ClassTimer = 'text-white drop-shadow-md'
+	const ClassTimer = 'text-white drop-shadow-md text-sm sm:text-2xl'
 	const ClassDesc = 'px-[8px] text-sm text-slate-600'
 	const ClassIcon = 'inline align-text-bottom ' +
 		              'mt-0 mr-[4px] mb-0 ml-[4px] ' +
@@ -72,17 +72,21 @@ export default function DrawFeaturedEventCard({ props }) {
 			<div className={ClassBox}
 				style={{backgroundColor: evtColor(props)}}>
 				<div className={ClassReward}>
-					<div>
-						<GiBlackHoleBolas
-							className={ClassRewardIcon} /> {props.bh}
-						<br />
-						<Si42
-							className={ClassRewardIcon} /> {props.ep}
-						<br />
-						<span className={`pl-[8px] pr-[8px] ${ClassRewardIcon}`}>
-							₳</span> {props.ad}
+					<div className="">
+						<div className="w-[100%] flex justify-center">
+							<GiBlackHoleBolas className={`mt-1 sm:mt-0 ${ClassRewardIcon}`}/>
+							<div>{props.bh}</div>
+						</div>
+						<div className="w-[100%] flex pt-2 justify-center">
+							<Si42 className={`mt-1 ${ClassRewardIcon}`}/>
+							<div >{props.ep}</div>
+						</div>
+						<div className="w-[100%] flex pt-2 justify-center">
+							<span className={`ml-[6px] sm:ml-0 pt-[1px] sm:pt-0 sm:pl-[8px] pr-[2px] text-[90%] sm:text-[140%] ${ClassRewardIcon}`}>₳</span>
+							<div>{props.ad}</div>
+						</div>
 					</div>
-					<div className='w-[100%] mt-[16px] text-center'>
+					<div className='w-[100%] text-center'>
 						<button 
 							onClick={()=>{join ? setJoin(false) : setJoin(true)}}
 							className={join ? ClassButton1 : ClassButton0}>
@@ -92,11 +96,9 @@ export default function DrawFeaturedEventCard({ props }) {
 				</div>
 				<div>
 					<div className={ClassTitle}>
-						<span>{props.title}</span>
-						<span className='grow' />
-						<span className={ClassTimer} suppressHydrationWarning>
-							{time}
-						</span>
+						<div>{props.title}</div>
+						<div className='grow' />
+						<div className={ClassTimer} suppressHydrationWarning>{time}</div>
 					</div>
 					<div className={ClassDesc}>
 						<AiOutlineClockCircle 
@@ -107,7 +109,7 @@ export default function DrawFeaturedEventCard({ props }) {
 							className={ClassIcon} /> {props.where}
 						<br />
 					</div>
-					<div className='overflow-scroll border-t border-slate-700 h-[168px]'>
+					<div className='mt-2 overflow-scroll border-t border-slate-700 h-[140px]'>
 						<div id='evcon' className={ClassContent}
 							dangerouslySetInnerHTML={{ __html: props.contentsHtml }} />
 					</div>

@@ -56,22 +56,22 @@ export default function Vote({ EventsData, Featured, ftData }) {
 			</Head>
 			<Navbar />
 			<div className='sm:ml-64 h-screen bg-zinc-100'>
-				<div className='z-0 w-full sm:h-[400px] p-0 m-0 flex p-10 bg-gray-200 dark:bg-gradient-to-r from-gray-500 from-10% via-gray-400 via-30% to-gray-500 to-90%'>
-					<div className='grid grid-row-2 gap-y-[11%] h-full w-2/4 mr-5'>
-						<div className='w-full rounded-md bg-gray-50 dark:bg-gray-800 p-2 px-5'>
+				<div className='z-0 w-full sm:h-[400px] p-0 m-0 sm:flex p-10 bg-gray-200 dark:bg-gradient-to-r from-gray-500 from-10% via-gray-400 via-30% to-gray-500 to-90%'>
+					<div className='grid grid-rows-2 gap-x-[11%] sm:gap-y-[11%] h-full sm:w-2/4 sm:mr-5'>
+						<div className='w-full rounded-md bg-gray-50 dark:bg-gray-800 p-2 px-5 mb-3 sm:mb-0'>
 							<div className='dark:text-gray-100 my-auto font-bold text-[20px] text-sm sm:text-2xl text-center pb-2'>Next Coalition Event</div>
-							<div className='justify-center flex m-0 p-0 border-t h-2/3'>
+							<div className='justify-center flex mt-0 p-0 border-t h-2/3'>
 								<div className='dark:text-gray-100 m-auto font-bold text-[20px] text-sm sm:text-2xl'>Currently in session</div>
 							</div>
 						</div>
-						<div className='w-full rounded-md bg-gray-50 dark:bg-gray-800 p-2 px-5'>
+						<div className='w-full rounded-md bg-gray-50 dark:bg-gray-800 p-2 px-5 mb-3 sm:mb-0'>
 							<div className='dark:text-gray-100 m-auto font-bold text-[20px] text-sm sm:text-2xl text-center pb-2'>Latest proposed Event</div>
 							<div className='justify-center flex m-0 p-0 border-t h-2/3'>
 								<div className='dark:text-gray-100 m-auto font-bold text-[20px] text-sm sm:text-2xl'>Badminton</div>
 							</div>
 						</div>
 					</div>
-					<div className='bg-gray-800 rounded-md px-5 py-2'>
+					<div className='bg-gray-50 dark:bg-gray-800 rounded-md px-5 py-2 sm:w-2/4'>
 						<section id='featured'>
 							<DrawFeaturedEventCard props={ Featured } />
 						</section>
