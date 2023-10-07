@@ -7,6 +7,8 @@ export default function App({ Component, pageProps }) {
 	<>
 		<Head>
         	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<link href="/images/icon.png" rel="icon" type="image/png" />
+			<link href="/images/icon.png" rel="shortcut icon" type="image/png" />
       	</Head>
 		<Component {...pageProps} />
 	</>
