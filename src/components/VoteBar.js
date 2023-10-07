@@ -22,18 +22,21 @@ export default function VoteBar() {
 	
 	return (
 		<div className='w-full ml-2 mb-4 text-center mx-auto' style={{marginTop: "-8px"}}>
-			<div className='flex overflow-hidden border border-gray-400 rounded-b-lg bg-white align-center justify-between'>
-				<button className='w-1/12 hover:text-green-500 hover:bg-gray-100' onClick={()=>changeYes(yes+1)}>
-					<div className='text-xs sm:text-xl font-bold sm:font-extrabold'>↑</div>
-					<div className='text-[10px] sm:text-sm' suppressHydrationWarning>{yes}</div>
-				</button>
-				<div className="w-[80%] h-2.5 sm:h-3 bg-red-500 rounded-full dark:bg-red-500 mt-[10px]">
-					<div className="bg-green-500 h-2.5 sm:h-3 rounded-full" style={{width: calPerc(yes, no)}}></div>
+			<div className='flex overflow-hidden border border-gray-400 rounded-b-lg bg-white align-center justify-start'>
+				<div className='w-[20%] sm:w-[20.1%] flex justify-between'>
+					<button className='hover:text-green-500 hover:bg-gray-100 px-2 sm:px-6 flex w-2/4 justify-center' onClick={()=>changeYes(yes+1)}>
+						<div className='text-xs sm:text-xl font-bold sm:font-extrabold'>↑</div>
+						<div className='ml-1 sm:ml-3 sm:mt-[2px] text-[10px] sm:text-base' suppressHydrationWarning>{yes}</div>
+					</button>
+					<button className='hover:text-red-500 hover:bg-gray-100 px-2 sm:px-6 flex w-2/4 justify-center border-r border-gray-400' onClick={()=>changeNo(no+1)}>
+						<div className='mr-1 sm:mr-3 sm:mt-[2px] text-[10px] sm:text-base' suppressHydrationWarning>{no}</div>
+						<div className='text-xs sm:text-xl font-bold sm:font-extrabold'>↓</div>
+					</button>
 				</div>
-				<button className='w-1/12 hover:text-red-500 hover:bg-gray-100' onClick={()=>changeNo(no+1)}>
-					<div className='text-xs sm:text-xl font-bold sm:font-extrabold'>↓</div>
-					<div className='text-[10px] sm:text-sm' suppressHydrationWarning>{no}</div>
-				</button>
+				
+				<div className="w-[80%] h-2 sm:h-3 bg-red-500 rounded-full dark:bg-red-500 mt-[4px] sm:mt-[8px] mx-1 sm:mx-2">
+					<div className="bg-green-500 h-2 sm:h-3 rounded-full" style={{width: calPerc(yes, no)}}></div>
+				</div>
 			</div>
 		</div>
 	)
