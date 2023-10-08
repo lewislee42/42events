@@ -23,19 +23,23 @@ export default function VoteBar() {
 	return (
 		<div className='ml-2 mb-4 text-center mx-auto' style={{marginTop: "-8px"}}>
 			<div className='flex overflow-hidden border border-gray-400 rounded-b-lg bg-white align-center justify-start'>
-				<div className='w-[20%] 2xl:w-[20.1%] flex justify-between'>
-					<button className='hover:text-green-500 hover:bg-gray-100 px-2 2xl:px-6 flex w-2/4 justify-center' onClick={()=>changeYes(yes+1)}>
-						<div className='text-xs 2xl:text-xl font-bold 2xl:font-extrabold'>↑</div>
-						<div className='ml-1 2xl:ml-3 2xl:mt-[2px] text-[10px] 2xl:text-base' suppressHydrationWarning>{yes}</div>
+				<div className='w-[100%] flex'>
+					<button className='w-[18%] hover:text-green-500 hover:bg-gray-100 flex' onClick={()=>changeYes(yes+1)}>
+						<div className='grow m-0 p-0' />
+						<div className='ml-1 sm:ml-3 sm:mt-[2px] text-[10px] sm:text-base' suppressHydrationWarning>{yes}</div>
+						<div className='text-xs sm:text-xl font-bold sm:font-extrabold'>↑</div>
 					</button>
-					<button className='hover:text-red-500 hover:bg-gray-100 px-2 2xl:px-6 flex w-2/4 justify-center border-r border-gray-400' onClick={()=>changeNo(no+1)}>
-						<div className='mr-1 2xl:mr-3 2xl:mt-[2px] text-[10px] 2xl:text-base' suppressHydrationWarning>{no}</div>
-						<div className='text-xs 2xl:text-xl font-bold 2xl:font-extrabold'>↓</div>
-					</button>
+					
+				<div className="grow h-2 sm:h-3 bg-red-500 rounded-full dark:bg-red-500 mt-[4px] sm:mt-[8px] mx-1 sm:mx-2">
+					<div className="bg-green-500 h-2 sm:h-3 rounded-full" style={{width: calPerc(yes, no)}}></div>
 				</div>
-				
-				<div className="w-[80%] h-2 2xl:h-3 bg-red-500 rounded-full dark:bg-red-500 mt-[4px] 2xl:mt-[8px] mx-1 2xl:mx-2">
-					<div className="bg-green-500 h-2 2xl:h-3 rounded-full" style={{width: calPerc(yes, no)}}></div>
+	
+	
+					<button className='w-[18%] hover:text-red-500 hover:bg-gray-100 flex' onClick={()=>changeNo(no+1)}>
+						<div className='text-xs sm:text-xl font-bold sm:font-extrabold'>↓</div>
+						<div className='mr-1 sm:mr-3 sm:mt-[2px] text-[10px] sm:text-base' suppressHydrationWarning>{no}</div>
+						<div className='grow m-0 p-0' />
+					</button>
 				</div>
 			</div>
 		</div>

@@ -109,7 +109,7 @@ export default function DrawFeaturedEventCard({ props }) {
 							className={ClassIcon} /> {props.where}
 						<br />
 					</div>
-					<div className='mt-2 overflow-scroll border-t border-slate-700 h-[140px] z-0'>
+					<div className='mt-2 overflow-scroll border-t border-slate-700 h-[140px] xl:h-[100px] 2xl:h-[140px] z-0'>
 						<div id='evcon' className={ClassContent}
 							dangerouslySetInnerHTML={{ __html: props.contentsHtml }} />
 					</div>
