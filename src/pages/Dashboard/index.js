@@ -139,14 +139,20 @@ export default function Dashboard({ EventsData, Featured, Votables }) {
 							<section>
 								{event1 === ''? Votables.map((props) => (
 									<div className='pr-4'>
-										<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
+										<div className='flex m-0 p-0'>
+											<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
+											<DrawEventCardModal obj={props} />
+										</div>
 										<VoteBar/>
 									</div>
 								)) : Votables.map((props) => {
 									if (props.type == event1) {
 										return (
 											<div className='pr-4'>
-												<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
+												<div className='flex m-0 p-0'>
+													<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
+													<DrawEventCardModal obj={props} />
+												</div>
 												<VoteBar/>
 											</div>
 										)

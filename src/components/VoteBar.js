@@ -21,7 +21,7 @@ export default function VoteBar() {
 	}, []);
 	
 	return (
-		<div className='w-full ml-2 mb-4 text-center mx-auto' style={{marginTop: "-8px"}}>
+		<div className='w-[98%] sm:w-[99%] ml-2 mb-4 text-center mx-auto' style={{marginTop: "-8px"}}>
 			<div className='flex overflow-hidden border border-gray-400 rounded-b-lg bg-white align-center justify-start'>
 				<div className='w-[20%] sm:w-[20.1%] flex justify-between'>
 					<button className='hover:text-green-500 hover:bg-gray-100 px-2 sm:px-6 flex w-2/4 justify-center' onClick={()=>changeYes(yes+1)}>
