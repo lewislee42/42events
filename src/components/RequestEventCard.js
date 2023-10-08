@@ -1,4 +1,4 @@
-import { AiOutlineDelete } from 'react-icons/ai'
+import { TbHandFinger } from 'react-icons/tb'
 import { useState, useEffect } from 'react'
 import { BiMessageDetail } from 'react-icons/bi';
 import VoteBar from './VoteBar';
@@ -47,13 +47,13 @@ export default function RequestEventCard(props) {
 						<div className="px-2 my-[1px] text-slate-600 dark:text-slate-400 uppercase font-bold">Title: {props.obj.title}</div>
 						<div className="px-2 my-[1px] text-sm text-black dark:text-white">Description: {props.obj.text}</div>
 						<div className="flex px-2 my-2">
-							<a href="/Proposal" className="px-2 rounded-sm border border-teal-400 text-teal-400 hover:border-neutral-950 hover:text-neutral-950 dark:hover:border-white dark:hover:text-white">Volunteer<AiOutlineDelete className="ml-2 inline"/></a>
+							<a href="/Proposal" className="px-2 rounded-sm border border-teal-400 text-teal-400 hover:border-neutral-950 hover:text-neutral-950 dark:hover:border-white dark:hover:text-white">Volunteer<TbHandFinger className="ml-2 inline"/></a>
 							<button type="button" onClick={()=>commentDisplay?setCommentDisplay(false): setCommentDisplay(true)}className="ml-2" title="Click Here"><BiMessageDetail/></button>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div className="mr-[8px]">
+			<div className="text-black">
 				<VoteBar/>
 			</div>
 			{commentDisplay? (
