@@ -86,7 +86,7 @@ export default function DrawFeaturedEventCard({ props }) {
 							<div>{props.ad}</div>
 						</div>
 					</div>
-					<div className='w-full text-center flex justify-start 2xl:justify-center pt-[125px] 2xl:pt-[14px] z-10 rounded-md'>
+					<div className='w-full text-center flex justify-center pt-[90px] 2xl:pt-[14px] z-10 rounded-md'>
 						<button 
 							onClick={()=>{join ? setJoin(false) : setJoin(true)}}
 							className={join ? ClassButton1 : ClassButton0}>
