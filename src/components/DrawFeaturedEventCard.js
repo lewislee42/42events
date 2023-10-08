@@ -54,10 +54,10 @@ export default function DrawFeaturedEventCard({ props }) {
 						 'bg-red-500 ' +
 						 'text-xs sm:text-base text-neutral-50 ' +
 						 ' hover:bg-red-600 z-10 rounded-md'
-	const ClassTitle = 'sm:flex flex-col sm:flex-row m-0 px-2 ' +
+	const ClassTitle = 'flex flex-col flex-row 2xl:flex-row m-0 px-2 ' +
 		               'text-2xl text-slate-700 ' +
 		               'uppercase font-bold'
-	const ClassTimer = 'text-white drop-shadow-md text-sm sm:text-2xl'
+	const ClassTimer = 'text-white drop-shadow-md text-sm xl:text-sm 2xl:text-2xl'
 	const ClassDesc = 'px-[8px] text-sm text-slate-600'
 	const ClassIcon = 'inline align-text-bottom ' +
 		              'mt-0 mr-[4px] mb-0 ml-[4px] ' +
@@ -109,7 +109,7 @@ export default function DrawFeaturedEventCard({ props }) {
 							className={ClassIcon} /> {props.where}
 						<br />
 					</div>
-					<div className='mt-2 overflow-scroll border-t border-slate-700 h-[140px] z-0'>
+					<div className='mt-2 overflow-scroll border-t border-slate-700 h-[140px] xl:h-[100px] 2xl:h-[140px] z-0'>
 						<div id='evcon' className={ClassContent}
 							dangerouslySetInnerHTML={{ __html: props.contentsHtml }} />
 					</div>
