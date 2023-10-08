@@ -85,7 +85,7 @@ export default function UpskillingForm() {
 					</div>
 				</div>): ''}
 			</div>
-			<button type="submit" class="mt-3 text-white bg-lime-500 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-lime-500 dark:hover:bg-lime-700 dark:focus:ring-lime-800">Submit</button>
+			<button type="submit" class="mt-3 text-white bg-lime-500 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-sm text-sm w-full md:w-auto px-5 py-2.5 text-center dark:bg-lime-500 dark:hover:bg-lime-700 dark:focus:ring-lime-800">Submit</button>
 		</form>
 	)
 }

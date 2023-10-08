@@ -41,8 +41,6 @@ export default function VoteBar() {
 						<div className='grow m-0 p-0' />
 					</button>
 				</div>
-				
-				
 			</div>
 		</div>
 	)

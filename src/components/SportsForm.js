@@ -75,7 +75,7 @@ export default function SportsForm() {
 					</div>
 				</div>) : ''}
 			</div>
-			<button type="submit" class="mt-3 text-white bg-emerald-500 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-emerald-500 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">Submit</button>
+			<button type="submit" class="mt-3 text-white bg-emerald-500 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-sm text-sm w-full md:w-auto px-5 py-2.5 text-center dark:bg-emerald-500 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">Submit</button>
 		</form>
 	)
 }

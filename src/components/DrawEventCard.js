@@ -32,7 +32,7 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 		               'text-slate-600 ' +
 		               'uppercase font-bold'
 	const ClassDesc = 'px-[8px] ' +
-					  'text-xs sm:text-sm text-black dark:text-slate-600'
+					  'text-xs md:text-sm text-black dark:text-slate-600'
 	const ClassIcon = 'inline align-text-bottom ' +
 		              'mt-0 mr-[4px] mb-0 ml-[4px] ' +
 		              'text-slate-700 dark:text-slate-600 ' +
@@ -57,17 +57,17 @@ export default function DrawEventCard({ id, title, type, when, where, bh, ep, ad
 						<AiOutlineClockCircle 
 							className={ClassIcon} />
 						<FormatDate dateString={when} want='hmb' />
-						<span className='block sm:inline m-0 ml-2 sm:ml-4' />
+						<span className='block md:inline m-0 ml-2 md:ml-4' />
 						<MdOutlineLocationOn
 							className={ClassIcon} /> {where}
 						<br />
 						<span className={ClassReward}>
 							<GiBlackHoleBolas
 								className={ClassIcon} /> {bh}
-							<span className='m-0 sm:ml-6' />
+							<span className='m-0 md:ml-6' />
 							<Si42
 								className={ClassIcon} /> {ep}
-							<span className='m-0 sm:ml-6' />
+							<span className='m-0 md:ml-6' />
 							<span className={ClassIcon}>₳</span> {ad}
 						</span>
 					</div>

@@ -18,7 +18,7 @@ export default function RequestForm(props) {
 				<label for="message" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white">Description:</label>
 				<textarea value={props.text} onChange={(e)=>props.setText(e.target.value)} id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" placeholder="Description..." required></textarea>
 			</div>
-			<button type='submit' class="mt-3 text-white bg-gray-500 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-500 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Post</button>
+			<button type='submit' class="mt-3 text-white bg-gray-500 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-sm text-sm w-full md:w-auto px-5 py-2.5 text-center dark:bg-gray-500 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Post</button>
 		</form>
 	)
 }

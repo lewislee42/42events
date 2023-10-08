@@ -32,7 +32,7 @@ export default function Proposal() {
 			<title>42 Events</title>
 		</Head>
 		<Navbar/>
-		<div className="p-8 sm:ml-64 pt-20 sm:pt-8 min-h-screen dark:bg-gray-900 dark:text-white">
+		<div className="p-8 md:ml-64 pt-20 md:pt-8 min-h-screen dark:bg-gray-900 dark:text-white">
 			<h2 className="text-2xl">Create Event
 				<MdOutlineEmojiEvents className="inline ml-2"/>
 			</h2>

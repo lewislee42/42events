@@ -9,7 +9,7 @@ export default function Login() {
 			<title>42 Events</title>
 		</Head>
 		<div className="min-h-screen dark:bg-gray-900 bg-gray-400">
-			<div className="py-10 md:py-20 sm:w-[70%] md:w-[50%] lg:w-[40%] mx-auto bg-white min-h-screen">
+			<div className="py-10 md:py-20 md:w-[70%] md:w-[50%] md:w-[40%] mx-auto bg-white min-h-screen">
 				<Image
 					src="/42_logo.svg"
 					className="mx-auto"

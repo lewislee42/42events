@@ -40,7 +40,7 @@ export default function Dashboard({ EventsData, Featured, Votables }) {
 				<title>42 Events</title>
 			</Head>
 			<Navbar />
-			<div className='sm:ml-64 h-screen bg-zinc-100'>
+			<div className='md:ml-64 h-screen bg-zinc-100'>
 				<div className='z-0 w-full md:h-[400px] p-4 pt-10 m-0 md:flex md:p-10 bg-gray-200 dark:bg-gradient-to-r from-gray-500 from-10% via-gray-400 via-30% to-gray-500 to-90%'>
 					<div className='grid grid-rows-2 gap-x-[11%] md:gap-y-[11%] h-full md:w-2/4 md:mr-5'>
 						<div className='w-full rounded-md bg-gray-50 dark:bg-gray-800 p-2 px-5 mb-3 md:mb-0 h-full'>

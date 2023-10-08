@@ -9,7 +9,7 @@ export default function Help() {
 			<title>42 Events</title>
 		</Head>
 		<Navbar/>
-		<div className="p-8 sm:ml-64 pt-20 sm:pt-8 h-screen dark:bg-gray-900 dark:text-white">
+		<div className="p-8 md:ml-64 pt-20 md:pt-8 h-screen dark:bg-gray-900 dark:text-white">
 			<Image 
 				src="/keep-calm.jpg"
 				className="mx-auto"
