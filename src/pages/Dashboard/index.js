@@ -138,7 +138,7 @@ export default function Dashboard({ EventsData, Featured, Votables }) {
 						<div className='overflow-scroll h-[75%] sm:h-[85%] p-2 mb-4 border-t sm:border-b'>
 							<section>
 								{event1 === ''? Votables.map((props) => (
-									<div className='pr-4'>
+									<div className='sm:pr-4'>
 										<div className='flex m-0 p-0'>
 											<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
 											<DrawEventCardModal obj={props} />
@@ -148,7 +148,7 @@ export default function Dashboard({ EventsData, Featured, Votables }) {
 								)) : Votables.map((props) => {
 									if (props.type == event1) {
 										return (
-											<div className='pr-4'>
+											<div className='sm:pr-4'>
 												<div className='flex m-0 p-0'>
 													<DrawEventCard key={props.id} id={props.id} title={props.title} type={props.type} when={props.when} where={props.where} bh={props.bh} ep={props.ep} ad={props.ad} />
 													<DrawEventCardModal obj={props} />
